@@ -1,0 +1,16 @@
+﻿// Standard Libraries
+global using Microsoft.AspNetCore.Mvc.Filters;
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.Extensions.Caching.Memory;
+global using System.Text.Json;
+
+// Project dependencies
+global using Helpdesk.Models.Navigation;
+
+// Internal dependencies
+global using Helpdesk.Models;
+global using Helpdesk.Models.Settings;
+global using Helpdesk.Models.Settings.Enums;
+global using Helpdesk.ActionFilters.Global;
+global using Helpdesk.Models.Cache.SessionCache;
+global using Helpdesk.Models.Cache.ScopeCache;

@@ -1,0 +1,132 @@
+﻿@inject Helpdesk.Models.Navigation.NavigationStatic staticNav
+@inject Helpdesk.Models.Cache.ScopeCache.IScopeStorage scopeCache
+@inject Helpdesk.Models.Cache.SessionCache.ISessionStorage sessionCache
+@{
+    string iconPath = "~/img/bootstrap-icons-1.11.3/";
+    string iconFormat = ".svg";
+
+    scopeCache.Get(out IUserSettings settings);
+    sessionCache.Get(settings.UserId, out NavigationDynamic dynamicNav);
+}
+
+<!DOCTYPE html>
+<html lang="cz">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap-5.3.3/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Helpdesk.styles.css" asp-append-version="true" />
+</head>
+<body class="overflow-hidden">
+    <div class="d-flex vh-100">
+        <div id="navigation-sidebar" class="bg-primary d-flex flex-column overflow-y-scroll hide-scrollbar">
+            <div class="flex-grow-1">
+                <div> @* Uživatel *@                    
+                    
+                </div>
+                <div> @* Navigace *@
+                    <nav class="navbar d-block">
+                        <ul class="nav nav-pills btn-toggle-nav d-flex flex-column mb-auto">
+                            @foreach (NavigationNode node in staticNav.Nodes)
+                            {
+                                string icon = iconPath + node.Icon + iconFormat;
+                                string collapse = "#" + node.StaticName + "collapse";
+                                <li class="nav-item">
+                                    <div class="nav-link text-light">
+                                        <button class="btn btn-toggle rounded collapsed text-light" data-bs-toggle="collapse" data-bs-target=@collapse aria-expanded="false">
+                                            <img class="d-inline-block invert-color me-3" src="@Url.Content(icon)" alt="Users" width="30" height="30" />
+                                            @node.StaticName
+                                        </button>
+                                        <div class="collapse" id=@collapse.Remove(0,1)>
+                                            <ul class="navbar list-unstyled d-block">
+                                            @foreach (NavigationNode subNode in node.Children)
+                                            {;
+                                                    string subicon = iconPath + subNode.Icon + iconFormat;
+                                                <li class="nav-item ms-2">
+                                                        <a class="nav-link text-light" asp-area=@subNode.Route.Area asp-controller=@subNode.Route.Controller asp-action=@subNode.Route.Action>
+                                                        <img class="d-inline-block invert-color" src="@Url.Content(subicon)" alt="Users" width="25" height="25" />
+                                                        <span class="mx-3">@subNode.StaticName</span>
+                                                    </a>
+                                                </li>
+                                            }
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="border-top mx-3 my-1"></li>
+                            }
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div> @* Navigace - Obecné *@
+                <nav class="navbar d-block mb-1">
+                    <ul class="nav nav-pills btn-toggle-nav d-flex flex-column mb-auto">
+                       @foreach (NavigationNode node in staticNav.Shared)
+                        {
+                            string icon = iconPath + node.Icon + iconFormat;
+
+                            <li class="border-top mx-3 my-3"></li>
+                            <li class="nav-item ms-2">
+                                <a class="nav-link text-light" asp-area=@node.Route.Area asp-controller=@node.Route.Controller asp-action=@node.Route.Action>
+                                    <img class="d-inline-block invert-color" src="@Url.Content(icon)" alt="Users" width="25" height="25" />
+                                    <span class="mx-3">@node.StaticName</span>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="flex-grow-1 d-flex flex-column">
+            <div id="navigation-upperbar" class="bg-primary d-flex align-items-center justify-content-between">
+                <div class="mx-5 flex-grow-1 d-flex align-items-center"> @* Breadcrumb navigation *@
+                    @{
+                        NavigationNode navNode = dynamicNav.Root;
+                        do
+                        {
+                            <a class="" asp-area=@navNode.Route.Area asp-controller=@navNode.Route.Controller asp-action=@navNode.Route.Action>
+                                    <h2 class="text-light h4 my-auto">@navNode.DynamicName</h2>
+                                </a>
+                            @if (navNode.HasChildren())
+                            {
+                                <img class="invert-color mx-3" src="@Url.Content("~/img/bootstrap-icons-1.11.3/arrow-right.svg")" alt="arrow" width="25" height="25" />                                navNode = navNode.Children.Last();
+                            }
+                            else navNode = null;
+
+                        } while (navNode != null);
+                    }
+                </div>
+                <div class=""> @* Search bar *@
+                    <form id="searchForm" class="input-group" role="search" asp-area="" asp-controller="Layout" asp-action="Search">
+                        <span class="input-group-text bg-primary">
+                            <img class="d-inline-block align-text-top invert-color" src="@Url.Content("~/img/bootstrap-icons-1.11.3/search.svg")" alt="SearchBar" width="#" height="#" />
+                        </span>
+                        <input id="searchInput" name="search" role="search" class="form-control rounded-end" placeholder="Hledání...">
+                    </form>
+                </div>
+                <div class="mx-5"> @* Theme switch *@
+                    <a class="" asp-area="" asp-controller="Layout" asp-action="SwitchTheme">
+                        <img class="d-inline-block my-auto invert-color" src="@(settings.Theme == Theme.Dark ?
+                                @Url.Content("~/img/bootstrap-icons-1.11.3/sun.svg") : 
+                                @Url.Content("~/img/bootstrap-icons-1.11.3/moon-stars.svg"))"
+                                alt="Theme" width="24" height="24" />
+                    </a>
+                </div>
+            </div>
+            <div class="h-100 @(settings.Theme == Theme.Dark ? "bg-dark text-light" : "bg-light text-dark")">
+                <main id="main" class="p-4" role="main">
+                    @RenderBody()
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap-5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

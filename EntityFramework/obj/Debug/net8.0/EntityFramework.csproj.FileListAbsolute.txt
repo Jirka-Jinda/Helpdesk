@@ -1,0 +1,11 @@
+C:\Projects\Helpdesk\Helpdesk\EntityFramework\bin\Debug\net8.0\EntityFramework.deps.json
+C:\Projects\Helpdesk\Helpdesk\EntityFramework\bin\Debug\net8.0\EntityFramework.dll
+C:\Projects\Helpdesk\Helpdesk\EntityFramework\bin\Debug\net8.0\EntityFramework.pdb
+C:\Projects\Helpdesk\Helpdesk\EntityFramework\obj\Debug\net8.0\EntityFramework.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\Helpdesk\Helpdesk\EntityFramework\obj\Debug\net8.0\EntityFramework.AssemblyInfoInputs.cache
+C:\Projects\Helpdesk\Helpdesk\EntityFramework\obj\Debug\net8.0\EntityFramework.AssemblyInfo.cs
+C:\Projects\Helpdesk\Helpdesk\EntityFramework\obj\Debug\net8.0\EntityFramework.csproj.CoreCompileInputs.cache
+C:\Projects\Helpdesk\Helpdesk\EntityFramework\obj\Debug\net8.0\EntityFramework.dll
+C:\Projects\Helpdesk\Helpdesk\EntityFramework\obj\Debug\net8.0\refint\EntityFramework.dll
+C:\Projects\Helpdesk\Helpdesk\EntityFramework\obj\Debug\net8.0\EntityFramework.pdb
+C:\Projects\Helpdesk\Helpdesk\EntityFramework\obj\Debug\net8.0\ref\EntityFramework.dll

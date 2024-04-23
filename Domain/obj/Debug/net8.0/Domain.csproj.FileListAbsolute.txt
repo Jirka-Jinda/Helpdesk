@@ -1,0 +1,15 @@
+C:\Projects\Helpdesk\Helpdesk\Domain\bin\Debug\net8.0\Domain.deps.json
+C:\Projects\Helpdesk\Helpdesk\Domain\bin\Debug\net8.0\Domain.dll
+C:\Projects\Helpdesk\Helpdesk\Domain\bin\Debug\net8.0\Domain.pdb
+C:\Projects\Helpdesk\Helpdesk\Domain\bin\Debug\net8.0\EntityFramework.dll
+C:\Projects\Helpdesk\Helpdesk\Domain\bin\Debug\net8.0\EntityFramework.pdb
+C:\Projects\Helpdesk\Helpdesk\Domain\obj\Debug\net8.0\Domain.csproj.AssemblyReference.cache
+C:\Projects\Helpdesk\Helpdesk\Domain\obj\Debug\net8.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\Helpdesk\Helpdesk\Domain\obj\Debug\net8.0\Domain.AssemblyInfoInputs.cache
+C:\Projects\Helpdesk\Helpdesk\Domain\obj\Debug\net8.0\Domain.AssemblyInfo.cs
+C:\Projects\Helpdesk\Helpdesk\Domain\obj\Debug\net8.0\Domain.csproj.CoreCompileInputs.cache
+C:\Projects\Helpdesk\Helpdesk\Domain\obj\Debug\net8.0\Domain.csproj.Up2Date
+C:\Projects\Helpdesk\Helpdesk\Domain\obj\Debug\net8.0\Domain.dll
+C:\Projects\Helpdesk\Helpdesk\Domain\obj\Debug\net8.0\refint\Domain.dll
+C:\Projects\Helpdesk\Helpdesk\Domain\obj\Debug\net8.0\Domain.pdb
+C:\Projects\Helpdesk\Helpdesk\Domain\obj\Debug\net8.0\ref\Domain.dll

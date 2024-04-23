@@ -1,0 +1,14 @@
+﻿#navigation-sidebar {
+    width: 240px;
+    box-shadow: 3px 3px 3px 3px;
+    z-index: 0;
+}
+
+#navigation-upperbar {
+    padding-left: 12px;
+    height: 80px;
+}
+
+.hide-scrollbar {
+    scrollbar-width: none;
+}

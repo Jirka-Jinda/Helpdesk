@@ -1,0 +1,6 @@
+﻿[
+  {
+    "outputFile": "wwwroot/lib/bootstrap-5.3.3/dist/css/bootstrap.css",
+    "inputFile": "wwwroot/lib/custom_bootstrap/custom.scss"
+  }
+]
