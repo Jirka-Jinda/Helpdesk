@@ -1,0 +1,6 @@
+name: helpdesk_app
+
+services:
+  application:
+      
+  database:

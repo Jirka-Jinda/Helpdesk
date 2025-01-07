@@ -1,0 +1,11 @@
+C:\Projects\Helpdesk\Helpdesk\Ticket\bin\Debug\net8.0\Ticket.deps.json
+C:\Projects\Helpdesk\Helpdesk\Ticket\bin\Debug\net8.0\Ticket.dll
+C:\Projects\Helpdesk\Helpdesk\Ticket\bin\Debug\net8.0\Ticket.pdb
+C:\Projects\Helpdesk\Helpdesk\Ticket\obj\Debug\net8.0\Ticket.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\Helpdesk\Helpdesk\Ticket\obj\Debug\net8.0\Ticket.AssemblyInfoInputs.cache
+C:\Projects\Helpdesk\Helpdesk\Ticket\obj\Debug\net8.0\Ticket.AssemblyInfo.cs
+C:\Projects\Helpdesk\Helpdesk\Ticket\obj\Debug\net8.0\Ticket.csproj.CoreCompileInputs.cache
+C:\Projects\Helpdesk\Helpdesk\Ticket\obj\Debug\net8.0\Ticket.dll
+C:\Projects\Helpdesk\Helpdesk\Ticket\obj\Debug\net8.0\refint\Ticket.dll
+C:\Projects\Helpdesk\Helpdesk\Ticket\obj\Debug\net8.0\Ticket.pdb
+C:\Projects\Helpdesk\Helpdesk\Ticket\obj\Debug\net8.0\ref\Ticket.dll

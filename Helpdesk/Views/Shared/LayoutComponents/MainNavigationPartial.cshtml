@@ -1,0 +1,38 @@
+﻿@{
+    string iconPath = "~/img/bootstrap-icons-1.11.3/";
+    string iconFormat = ".svg";
+}
+@model IReadOnlyCollection<Helpdesk.Models.Navigation.NavigationNode>
+<nav class="navbar d-block">
+    <ul class="nav nav-pills btn-toggle-nav d-flex flex-column mb-auto">
+        @foreach (NavigationNode node in Model)
+        {
+            string icon = iconPath + node.Data.Icon + iconFormat;
+            string collapse = "#" + node.Data.StaticName + "collapse";
+            <li class="nav-item">
+                <div class="nav-link text-light">
+                    <button class="btn btn-toggle rounded collapsed text-light" data-bs-toggle="collapse" data-bs-target=@collapse aria-expanded="false">
+                        <img class="d-inline-block invert-color me-3" src="@Url.Content(icon)" alt="Users" width="30" height="30" />
+                        @node.Data.StaticName
+                    </button>
+                    <div class="collapse" id=@collapse.Remove(0,1)>
+                        <ul class="navbar list-unstyled d-block">
+                            @foreach (NavigationNode subNode in node.Children)
+                            {
+                                ;
+                                string subicon = iconPath + subNode.Data.Icon + iconFormat;
+                                <li class="nav-item ms-2">
+                                    <a class="nav-link text-light" asp-area=@subNode.Route.Area asp-controller=@subNode.Route.Controller asp-action=@subNode.Route.Action>
+                                        <img class="d-inline-block invert-color" src="@Url.Content(subicon)" alt="Users" width="25" height="25" />
+                                        <span class="mx-3">@subNode.Data.StaticName</span>
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="border-top mx-3 my-1"></li>
+        }
+    </ul>
+</nav>

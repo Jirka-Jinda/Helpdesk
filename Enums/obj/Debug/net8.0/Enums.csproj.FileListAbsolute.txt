@@ -1,0 +1,11 @@
+C:\Projects\Helpdesk\Helpdesk\Enums\bin\Debug\net8.0\Enums.deps.json
+C:\Projects\Helpdesk\Helpdesk\Enums\bin\Debug\net8.0\Enums.dll
+C:\Projects\Helpdesk\Helpdesk\Enums\bin\Debug\net8.0\Enums.pdb
+C:\Projects\Helpdesk\Helpdesk\Enums\obj\Debug\net8.0\Enums.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\Helpdesk\Helpdesk\Enums\obj\Debug\net8.0\Enums.AssemblyInfoInputs.cache
+C:\Projects\Helpdesk\Helpdesk\Enums\obj\Debug\net8.0\Enums.AssemblyInfo.cs
+C:\Projects\Helpdesk\Helpdesk\Enums\obj\Debug\net8.0\Enums.csproj.CoreCompileInputs.cache
+C:\Projects\Helpdesk\Helpdesk\Enums\obj\Debug\net8.0\Enums.dll
+C:\Projects\Helpdesk\Helpdesk\Enums\obj\Debug\net8.0\refint\Enums.dll
+C:\Projects\Helpdesk\Helpdesk\Enums\obj\Debug\net8.0\Enums.pdb
+C:\Projects\Helpdesk\Helpdesk\Enums\obj\Debug\net8.0\ref\Enums.dll

@@ -1,0 +1,15 @@
+/* _content/Helpdesk/Views/Shared/_Layout.cshtml.rz.scp.css */
+#navigation-sidebar[b-s1jod2ajar] {
+    width: 230px;
+    box-shadow: 3px 3px 3px 3px;
+    z-index: 0;
+}
+
+#navigation-upperbar[b-s1jod2ajar] {
+    padding-left: 12px;
+    height: 65px;
+}
+
+.hide-scrollbar[b-s1jod2ajar] {
+    scrollbar-width: none;
+}
