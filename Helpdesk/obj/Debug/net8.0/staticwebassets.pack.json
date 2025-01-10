@@ -2,7 +2,7 @@
   "Files": [
     {
       "Id": "C:\\Code\\Private\\Helpdesk\\Helpdesk\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Helpdesk.bundle.scp.css",
-      "PackagePath": "staticwebassets\\Helpdesk.bundle.scp.css"
+      "PackagePath": "staticwebassets\\Helpdesk.1cqpkzvdlr.bundle.scp.css"
     },
     {
       "Id": "C:\\Code\\Private\\Helpdesk\\Helpdesk\\wwwroot\\css\\site.css",
@@ -11191,6 +11191,10 @@
     {
       "Id": "C:\\Code\\Private\\Helpdesk\\Helpdesk\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Helpdesk.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Helpdesk.Microsoft.AspNetCore.StaticWebAssets.props",
