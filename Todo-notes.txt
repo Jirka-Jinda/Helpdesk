@@ -1,0 +1,5 @@
+zprovoznit docker
+- dockerfile v helpdesk app a docker compose
+
+
+

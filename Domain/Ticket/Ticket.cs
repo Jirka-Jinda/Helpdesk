@@ -2,25 +2,22 @@
 {
     public partial class Ticket : BaseDomainObject
     {
-        public Ticket? Hierarchy { get; set; }
+        public Ticket Hierarchy { get; set; }
         public TicketType Type { get; set; }
-        public TicketChange History { get; set; }
+        public TicketChange PreviousTransition { get; set; }
         public TicketThread Thread { get; set; }
         public WFState WFState { get; set; }
-        public string Header { get; set; }
-        public string Description { get; set; }
+        public TicketData Data { get; set; }
 
-        public Ticket(string header, string description, TicketType type, Ticket? hierarchy = null)
+        public Ticket(string header, string description, TicketType type, TicketData data)
         {
             TimeCreated = DateTime.Now;
-            Hierarchy = hierarchy;
+            Hierarchy = this;
             Type = type;
-            History = WFTransition.Transition(WFState.Žádný, WFAction.Založení);
+            PreviousTransition = WFTransition.Transition(WFState.Žádný, WFAction.Založení);
             Thread = new TicketThread();
-            WFState = History.ChangeState;
-
-            Header = header;
-            Description = description;
+            WFState = PreviousTransition.ChangeState;
+            Data = data;
         }
     }
 }

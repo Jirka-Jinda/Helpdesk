@@ -2,7 +2,7 @@
 {
     public class TicketChange
     {
-        public TicketChange PreviousChange { get; set; }
+        public TicketChange PreviousTransition { get; set; }
         public WFState ChangeState { get; set; }
         public WFAction ChangeAction { get; set; }
         public User ChangeAuthor { get; set; }
