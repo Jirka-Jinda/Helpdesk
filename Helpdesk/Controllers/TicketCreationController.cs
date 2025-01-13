@@ -1,4 +1,6 @@
-﻿namespace Helpdesk.Controllers
+﻿using Helpdesk.Models.EventPlanner.Planner;
+
+namespace Helpdesk.Controllers
 {
     public class TicketCreationController : Controller
     {

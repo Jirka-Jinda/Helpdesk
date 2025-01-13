@@ -8,11 +8,9 @@
         public NavigationRoute Route { get; set; }
         public INodeData Data { get; set; }
 
-
         public bool IsRoot => Level == 0;
         public bool HasParent => Parent != null && Parent != this;
         public bool HasChildren => Children != null && Children.Count() != 0;
-
 
         public NavigationNode(INodeData data, NavigationRoute route)
         {

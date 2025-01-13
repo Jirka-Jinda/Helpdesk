@@ -1,5 +1,4 @@
 C:\Code\Private\Helpdesk\EntityFramework\bin\Debug\net8.0\Infrastructure.deps.json
-C:\Code\Private\Helpdesk\EntityFramework\bin\Debug\net8.0\Infrastructure.runtimeconfig.json
 C:\Code\Private\Helpdesk\EntityFramework\bin\Debug\net8.0\Infrastructure.dll
 C:\Code\Private\Helpdesk\EntityFramework\bin\Debug\net8.0\Infrastructure.pdb
 C:\Code\Private\Helpdesk\EntityFramework\bin\Debug\net8.0\Domain.dll
@@ -9,10 +8,9 @@ C:\Code\Private\Helpdesk\EntityFramework\obj\Debug\net8.0\Infrastructure.Generat
 C:\Code\Private\Helpdesk\EntityFramework\obj\Debug\net8.0\Infrastructure.AssemblyInfoInputs.cache
 C:\Code\Private\Helpdesk\EntityFramework\obj\Debug\net8.0\Infrastructure.AssemblyInfo.cs
 C:\Code\Private\Helpdesk\EntityFramework\obj\Debug\net8.0\Infrastructure.csproj.CoreCompileInputs.cache
+C:\Code\Private\Helpdesk\EntityFramework\obj\Debug\net8.0\Infrastructure.sourcelink.json
 C:\Code\Private\Helpdesk\EntityFramework\obj\Debug\net8.0\Infrastr.15EFFBFE.Up2Date
 C:\Code\Private\Helpdesk\EntityFramework\obj\Debug\net8.0\Infrastructure.dll
 C:\Code\Private\Helpdesk\EntityFramework\obj\Debug\net8.0\refint\Infrastructure.dll
 C:\Code\Private\Helpdesk\EntityFramework\obj\Debug\net8.0\Infrastructure.pdb
-C:\Code\Private\Helpdesk\EntityFramework\obj\Debug\net8.0\Infrastructure.genruntimeconfig.cache
 C:\Code\Private\Helpdesk\EntityFramework\obj\Debug\net8.0\ref\Infrastructure.dll
-C:\Code\Private\Helpdesk\EntityFramework\obj\Debug\net8.0\Infrastructure.sourcelink.json

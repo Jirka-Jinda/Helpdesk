@@ -5,7 +5,7 @@
         /// <summary>
         /// Default timer for restarting application.
         /// </summary>
-        public TimeOnly RestartTime { get; set; }
-        public TimeSpan CleanupTimerInterval { get; set; }
+        public TimeOnly RestartTime { get; set; } = new TimeOnly();
+        public TimeSpan CleanupTimerInterval { get; set; } = new TimeSpan();
     }
 }

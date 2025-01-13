@@ -8,14 +8,16 @@ global using System.Text.Json;
 global using Domain.Ticket;
 
 // Internal dependencies
-global using Helpdesk.ActionFilters.Global;
+global using Helpdesk.Filters.Global;
 global using Helpdesk.Models.Navigation;
-global using Helpdesk.Models.Storage.StorageManager;
+global using Helpdesk.Models.Storage;
+global using Helpdesk.Models.Storage.Manager;
 global using Helpdesk.Models.Cache.SessionCache;
 global using Helpdesk.Models.Cache.ScopeCache;
 global using Helpdesk.Models.Settings;
 global using Helpdesk.Models.Settings.Enums;
 global using Helpdesk.Models.EventPlanner;
 global using Helpdesk.Models.EventPlanner.Enums;
+global using Helpdesk.Models.EventPlanner.Planner;
 global using Helpdesk.Models.EventPlanner.Manager;
 global using Helpdesk.Models.Attributes;

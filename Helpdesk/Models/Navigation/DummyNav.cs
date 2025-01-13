@@ -4,8 +4,10 @@
     {
         public static NavigationTree CreateDummyNav()
         {
-            var navigation = new NavigationTree()
+            var navigation = new NavigationTree(new ApplicationOptions())
             {
+                StaticNodeLevel = 2,
+                AllowCyclicTree = false,
                 Name = "TestNavigation",
                 Root = new NavigationNode(new NodeData() { StaticName = "TestNode1Static", DynamicName = "TestNode1Dynamic", Icon = "chevron" },
                 new NavigationRoute("", "Layout", "Index")),

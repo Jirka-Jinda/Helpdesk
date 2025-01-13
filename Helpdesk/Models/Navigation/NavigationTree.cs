@@ -5,20 +5,13 @@ public partial class NavigationTree : BaseObject
     public string Name { get; set; }
     public NavigationNode Root { get; set; }
     public NavigationNode ActiveNode { get; set; }
+    public int StaticNodeLevel { get; set; }
+    public bool AllowCyclicTree { get; set; }
 
-    // Settings
-    private int staticNodeLevel = 2;
-    private bool allowCyclicTree = false;
-
-    public NavigationTree(IApplicationSettings settings)
+    public NavigationTree(ApplicationOptions options)
     {
-        settings.NavigationTreeOptions.StaticNodeLevel = staticNodeLevel;
-        settings.NavigationTreeOptions.AllowCyclicTree = allowCyclicTree;
-    }
-
-    public NavigationTree()
-    {
-        
+        options.NavigationOptions.StaticNodeLevel = StaticNodeLevel;
+        options.NavigationOptions.AllowCyclicTree = AllowCyclicTree;
     }
 
     private bool Find(NavigationRoute route, out NavigationNode? match)
@@ -42,5 +35,5 @@ public partial class NavigationTree : BaseObject
         return false;
     }
 
-    private bool IsNodeStatic(NavigationNode node) => node.Level <= staticNodeLevel;
+    private bool IsNodeStatic(NavigationNode node) => node.Level <= StaticNodeLevel;
 }

@@ -1575,7 +1575,8 @@
       },
       "Database/1.0.0": {
         "dependencies": {
-          "Domain": "1.0.0"
+          "Domain": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "8.0.8"
         },
         "runtime": {
           "Database.dll": {
@@ -1598,9 +1599,7 @@
       "Infrastructure/1.0.0": {
         "dependencies": {
           "AutoMapper": "13.0.1",
-          "Domain": "1.0.0",
-          "Microsoft.EntityFrameworkCore": "8.0.8",
-          "Microsoft.EntityFrameworkCore.Abstractions": "8.0.8"
+          "Domain": "1.0.0"
         },
         "runtime": {
           "Infrastructure.dll": {

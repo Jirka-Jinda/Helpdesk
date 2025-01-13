@@ -5,13 +5,11 @@
         private PriorityQueue<Action, EventPriority> TaskQueue { get; set; }
         private bool EventLoopRunning { get; set; }
         private List<EventTimer> EventTimers { get; set; }
-        private ILogger<EventPlannerManager> Logger { get; set; }
-        private EventPlannerOptions Options { get; set; }
+        private ILogger<IEventPlannerManager> Logger { get; set; }
 
-        public EventPlanner(ILogger<EventPlannerManager> logger, IApplicationSettings settings)
+        public EventPlanner(ILogger<IEventPlannerManager> logger, EventPlannerOptions options)
         {
             Logger = logger;
-            Options = settings.EventPlannerOptions;
             TaskQueue = new PriorityQueue<Action, EventPriority>();
             EventTimers = new List<EventTimer>();
             AddTimer(CleanupTimer());

@@ -1,25 +1,25 @@
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddControllersWithViews(options =>
 {
-	// Global action filters
     options.Filters.Add<CookieFilter>();
 	options.Filters.Add<NavigationFilter>();
 });
 
-// Hosted Services
-builder.Services.AddSingleton<EventPlanner>();
-builder.Services.AddHostedService(ep => ep.GetRequiredService<EventPlanner>());
+builder.Services.AddApplicationCollection(options =>
+{
 
-// Integral Services
-builder.Services.AddSingleton<IApplicationSettings, ApplicationSettings>(_ => { return ApplicationSettings.GetApplicationSettings(); });
-builder.Services.AddSingleton<ISessionStorage, SessionCache>();
+});
 
-builder.Services.AddScoped<IScopeStorage, ScopeCache>();
-builder.Services.AddScoped<IStorageManager, StorageManager>();
+builder.Services.AddStorageCollection(options =>
+{
+	options.SessionMemoryCacheEntryOptions.SlidingExpiration = TimeSpan.FromMinutes(30);
+});
 
-builder.Services.AddTransient<IEventPlannerManager, EventPlannerManager>();
+builder.Services.AddEventPlannerCollection(options =>
+{
+
+});
 
 var app = builder.Build();
 

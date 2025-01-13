@@ -21,7 +21,7 @@
         private EventTimer CleanupTimer()
         {
             return new EventTimer(
-                Options.CleanupTimerInterval,
+                TimeSpan.FromSeconds(60),
                 () =>
                 {
                     int cleaned = 0;

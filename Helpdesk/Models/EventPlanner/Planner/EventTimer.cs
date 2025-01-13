@@ -1,4 +1,4 @@
-﻿namespace Helpdesk.Models.EventPlanner
+﻿namespace Helpdesk.Models.EventPlanner.Planner
 {
     public class EventTimer
     {

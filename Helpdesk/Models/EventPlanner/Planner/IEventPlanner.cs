@@ -1,5 +1,4 @@
-﻿
-namespace Helpdesk.Models.EventPlanner
+﻿namespace Helpdesk.Models.EventPlanner.Planner
 {
     /// <summary>
     /// Inherits IHostedService and IDisposable

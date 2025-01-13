@@ -8,6 +8,7 @@ C:\Code\Private\Helpdesk\Database\obj\Debug\net8.0\Database.GeneratedMSBuildEdit
 C:\Code\Private\Helpdesk\Database\obj\Debug\net8.0\Database.AssemblyInfoInputs.cache
 C:\Code\Private\Helpdesk\Database\obj\Debug\net8.0\Database.AssemblyInfo.cs
 C:\Code\Private\Helpdesk\Database\obj\Debug\net8.0\Database.csproj.CoreCompileInputs.cache
+C:\Code\Private\Helpdesk\Database\obj\Debug\net8.0\Database.sourcelink.json
 C:\Code\Private\Helpdesk\Database\obj\Debug\net8.0\Database.csproj.Up2Date
 C:\Code\Private\Helpdesk\Database\obj\Debug\net8.0\Database.dll
 C:\Code\Private\Helpdesk\Database\obj\Debug\net8.0\refint\Database.dll

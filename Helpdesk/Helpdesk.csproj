@@ -48,6 +48,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Models\Repository\" />
     <Folder Include="Views\TicketManagement\" />
   </ItemGroup>
 

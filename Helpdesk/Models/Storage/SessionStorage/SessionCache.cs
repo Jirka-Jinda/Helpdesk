@@ -1,22 +1,17 @@
-﻿namespace Helpdesk.Models.Cache.SessionCache
+﻿using Helpdesk.Models.Storage.Manager;
+
+namespace Helpdesk.Models.Cache.SessionCache
 {
     public class SessionCache : ISessionStorage
     {
-        private MemoryCache sessionCache { get; init; }
-        private MemoryCacheEntryOptions cacheOptions { get; init; }
+        private MemoryCache _sessionCache { get; init; }
+        private MemoryCacheEntryOptions _cacheOptions { get; init; }
 
-        public SessionCache(IApplicationSettings settings)
+        public SessionCache(StorageOptions options)
         {
             // IApplication Settings
-            sessionCache = new MemoryCache(settings.SessionMemoryCacheOptions);
-            cacheOptions = settings.SessionMemoryCacheEntryOptions;
-        }
-
-        public SessionCache()
-        {
-            // Default Settings
-            sessionCache = new MemoryCache(new MemoryCacheOptions());
-            cacheOptions = new MemoryCacheEntryOptions();
+            _sessionCache = new MemoryCache(options.SessionMemoryCacheOptions);
+            _cacheOptions = options.SessionMemoryCacheEntryOptions;
         }
 
         public bool Get(Guid key, out object? data)
@@ -31,13 +26,13 @@
 
         public bool Get(string key, out object? data)
         {
-            return sessionCache.TryGetValue(key, out data);
+            return _sessionCache.TryGetValue(key, out data);
         }
 
         public bool Get<T>(string key, out T? data)
         {
             bool fetched;
-            if (fetched = sessionCache.TryGetValue(key, out object? temp))
+            if (fetched = _sessionCache.TryGetValue(key, out object? temp))
             {
                 try
                 {
@@ -66,8 +61,8 @@
         {
             try
             {
-                sessionCache.CreateEntry(key);
-                sessionCache.Set(key, data, cacheOptions);
+                _sessionCache.CreateEntry(key);
+                _sessionCache.Set(key, data, _cacheOptions);
                 return true;
             }
             catch { return false; }
@@ -82,7 +77,7 @@
         {
             try
             {
-                sessionCache.Remove(key);
+                _sessionCache.Remove(key);
                 return true;
             }
             catch { return false; }
@@ -92,7 +87,7 @@
         {
             try
             {
-                sessionCache.Clear();
+                _sessionCache.Clear();
                 return true;
             }
             catch { return false; }

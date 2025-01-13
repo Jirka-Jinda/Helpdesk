@@ -1,4 +1,4 @@
-﻿namespace Helpdesk.ActionFilters.Global;
+﻿namespace Helpdesk.Filters.Global;
 
 /// <summary>
 /// Handles operating the navigation between every new view.

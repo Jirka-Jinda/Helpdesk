@@ -1,27 +1,17 @@
-﻿namespace Helpdesk.Models.Cache.ScopeCache
+﻿using Helpdesk.Models.Storage.Manager;
+
+namespace Helpdesk.Models.Cache.ScopeCache
 {
     public class ScopeCache : IScopeStorage
     {
-        private MemoryCache scopeCache { get; set; }
-        private MemoryCacheEntryOptions cacheEntryOptions { get; set; }
+        private MemoryCache _scopeCache { get; set; }
+        private MemoryCacheEntryOptions _cacheEntryOptions { get; set; }
 
-        public ScopeCache(IApplicationSettings settings)
+        public ScopeCache(StorageOptions options)
         {
             // IApplicationSettings values
-            scopeCache = new MemoryCache(settings.ScopeMemoryCacheOptions);
-            cacheEntryOptions = settings.ScopeMemoryCacheEntryOptions;
-        }
-        public ScopeCache()
-        {
-            // Default values
-            scopeCache = new MemoryCache(new MemoryCacheOptions() 
-            {
-
-            });
-            cacheEntryOptions = new MemoryCacheEntryOptions() 
-            {
-
-            };         
+            _scopeCache = new MemoryCache(options.ScopeMemoryCacheOptions);
+            _cacheEntryOptions = options.ScopeMemoryCacheEntryOptions;
         }
 
         public bool Get<T>(out T? data)
@@ -32,7 +22,7 @@
         {
             string objectKey = key + GetObjectKey<T>();
             
-            if (scopeCache.TryGetValue(objectKey, out object? res) && res != null)
+            if (_scopeCache.TryGetValue(objectKey, out object? res) && res != null)
             {
                 try
                 {
@@ -56,8 +46,8 @@
             try
             {
                 string objectKey = key + GetObjectKey<T>();
-                scopeCache.CreateEntry(objectKey);
-                scopeCache.Set(objectKey, data, cacheEntryOptions);
+                _scopeCache.CreateEntry(objectKey);
+                _scopeCache.Set(objectKey, data, _cacheEntryOptions);
                 return true;
             }
             catch { return false; }
@@ -72,7 +62,7 @@
         {
             try
             {
-                scopeCache.Clear();
+                _scopeCache.Clear();
                 return true;
             }
             catch { return false; }

@@ -19,8 +19,8 @@ C:\Code\Private\Helpdesk\Domain\obj\Debug\net8.0\Domain.GeneratedMSBuildEditorCo
 C:\Code\Private\Helpdesk\Domain\obj\Debug\net8.0\Domain.AssemblyInfoInputs.cache
 C:\Code\Private\Helpdesk\Domain\obj\Debug\net8.0\Domain.AssemblyInfo.cs
 C:\Code\Private\Helpdesk\Domain\obj\Debug\net8.0\Domain.csproj.CoreCompileInputs.cache
+C:\Code\Private\Helpdesk\Domain\obj\Debug\net8.0\Domain.sourcelink.json
 C:\Code\Private\Helpdesk\Domain\obj\Debug\net8.0\Domain.dll
 C:\Code\Private\Helpdesk\Domain\obj\Debug\net8.0\refint\Domain.dll
 C:\Code\Private\Helpdesk\Domain\obj\Debug\net8.0\Domain.pdb
 C:\Code\Private\Helpdesk\Domain\obj\Debug\net8.0\ref\Domain.dll
-C:\Code\Private\Helpdesk\Domain\obj\Debug\net8.0\Domain.sourcelink.json

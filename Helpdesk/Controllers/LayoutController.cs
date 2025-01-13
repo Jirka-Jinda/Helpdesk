@@ -1,6 +1,8 @@
+using Helpdesk.Models.Cookies;
+
 namespace Helpdesk.Controllers
 {
-	public class LayoutController : Controller
+    public class LayoutController : Controller
 	{
 		private IStorageManager storageManager;
         private ILogger<LayoutController> logger;
@@ -8,8 +10,7 @@ namespace Helpdesk.Controllers
         public LayoutController(IStorageManager sm, ILogger<LayoutController> lg)
         {
             logger = lg;
-            storageManager = sm;
-            
+            storageManager = sm;            
         }
 
         public IActionResult Index()
