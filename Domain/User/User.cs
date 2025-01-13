@@ -1,7 +1,6 @@
-﻿namespace Domain.Users
-{
-    public class User
-    {
+﻿namespace Domain.Users;
 
-    }
+public class User
+{
+    public UserType UserType { get; set; }
 }
