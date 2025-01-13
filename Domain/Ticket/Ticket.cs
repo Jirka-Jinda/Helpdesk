@@ -9,7 +9,7 @@
         public WFState WFState { get; set; }
         public TicketData Data { get; set; }
 
-        public Ticket(string header, string description, TicketType type, TicketData data)
+        public Ticket(TicketType type, TicketData data)
         {
             TimeCreated = DateTime.Now;
             Hierarchy = this;

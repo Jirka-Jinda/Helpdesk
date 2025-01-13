@@ -27,7 +27,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="BaseInterfaces\" />
+    <Folder Include="Abstraction\BaseInterfaces\" />
+    <Folder Include="Abstraction\ServiceInterfaces\" />
+    <Folder Include="Abstraction\RepositoryInterfaces\" />
   </ItemGroup>
 
 </Project>

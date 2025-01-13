@@ -1,5 +1,5 @@
 zprovoznit docker
 - dockerfile v helpdesk app a docker compose
 
-
+upravit options z app, aby brala action a udelat podle gss
 
