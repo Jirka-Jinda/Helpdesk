@@ -8,5 +8,6 @@ public enum WFState
     V_řešení,
     Neaktivní,
     Uzavřený,
-    Vrácený
+    Vrácený,
+    Neplatný
 }
