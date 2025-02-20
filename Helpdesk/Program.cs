@@ -1,3 +1,5 @@
+using Helpdesk.Models.Time;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews(options =>
@@ -6,20 +8,16 @@ builder.Services.AddControllersWithViews(options =>
 	options.Filters.Add<NavigationFilter>();
 });
 
-builder.Services.AddApplicationCollection(options =>
-{
-
-});
+builder.Services.AddApplicationCollection(options => { });
 
 builder.Services.AddStorageCollection(options =>
 {
 	options.SessionMemoryCacheEntryOptions.SlidingExpiration = TimeSpan.FromMinutes(30);
 });
 
-builder.Services.AddEventPlannerCollection(options =>
-{
+builder.Services.AddEventPlannerCollection(options => { });
 
-});
+builder.Services.AddTimeCollection(options => { });
 
 var app = builder.Build();
 

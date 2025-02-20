@@ -2,8 +2,24 @@
 
 public partial class Ticket
 {
-    public bool ChangeState(WFAction action, User user)
+    #region WF
+
+    public bool Transition(WFAction newAction, User author)
     {
-        return true;
+        if (WFTransitionRules.StateActions(WFState).Contains(newAction))
+        {
+            var newChange = new TicketChange(
+                WFTransitionRules.ActionResolutions(WFState, newAction),
+                newAction,
+                PreviousTransition
+                );
+                
+            PreviousTransition = newChange;
+
+            return true;
+        }
+        return false;
     }
+
+    #endregion
 }

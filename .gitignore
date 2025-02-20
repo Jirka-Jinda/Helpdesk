@@ -1,1 +1,7 @@
 .vs
+.vscode
+.idea
+__pycache__
+
+/build
+/src/gen/

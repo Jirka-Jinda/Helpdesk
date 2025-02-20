@@ -1,42 +1,29 @@
-﻿namespace Domain.Workflow.Transition;
+﻿using System.Collections.ObjectModel;
+
+namespace Domain.Workflow.Transition;
 
 public static class WFTransitionRules
 {
-    public static List<WFAction>? TransitionPath(WFState startState, WFState endState)
-    {
-        return TransitionPathfinder(startState, endState, new List<WFAction>());
-    }
-
-    private static List<WFAction>? TransitionPathfinder(WFState startState, WFState endState, List<WFAction> actions)
-    {
-        if (startState == endState)
-            return actions;
-
-
-
-        return null;
-    }
-
-    public static List<WFAction> StateActions(WFState state)
+    public static ReadOnlyCollection<WFAction> StateActions(WFState state)
     {
         switch (state)
         {
             case WFState.Žádný:
-                return new List<WFAction>() { WFAction.Založení };
+                return new ReadOnlyCollection<WFAction>(new List<WFAction>() { WFAction.Založení });
             case WFState.Založený:
-                return new List<WFAction>() { WFAction.Do_řešení };
+                return new ReadOnlyCollection<WFAction>(new List<WFAction>() { WFAction.Do_řešení });
             case WFState.Nepřidělený:
-                return new List<WFAction>() { WFAction.Přidělení_ručně, WFAction.Přidělení_timer, WFAction.Přidělení_manager };
+                return new ReadOnlyCollection<WFAction>(new List<WFAction>() { WFAction.Přidělení_ručně, WFAction.Přidělení_timer, WFAction.Přidělení_manager });
             case WFState.V_řešení:
-                return new List<WFAction>() { WFAction.Odložení, WFAction.Vyřešení, WFAction.Žádost_o_potvrzení, WFAction.Žádost_o_spolupráci, WFAction.Žádost_o_vyjádření_zadavatele, WFAction.Změna_řešitele };
+                return new ReadOnlyCollection<WFAction>(new List<WFAction>() { WFAction.Odložení, WFAction.Vyřešení, WFAction.Žádost_o_potvrzení, WFAction.Žádost_o_spolupráci, WFAction.Žádost_o_vyjádření_zadavatele, WFAction.Změna_řešitele });
             case WFState.Neaktivní:
-                return new List<WFAction>() { WFAction.Reaktivace_automatická, WFAction.Reaktivace_ruční };                
+                return new ReadOnlyCollection<WFAction>(new List<WFAction>() { WFAction.Reaktivace_automatická, WFAction.Reaktivace_ruční });                
             case WFState.Uzavřený:
-                return new List<WFAction>() { WFAction.Vrácení };
+                return new ReadOnlyCollection<WFAction>(new List<WFAction>() { WFAction.Vrácení });
             case WFState.Vrácený:
-                return new List<WFAction>() { WFAction.Vrácení };
+                return new ReadOnlyCollection<WFAction>(new List<WFAction>() { WFAction.Vrácení });
         }
-        return new List<WFAction>();
+        return new ReadOnlyCollection<WFAction>(new List<WFAction>());
     }
 
     public static WFState ActionResolutions(WFState startState, WFAction action)
@@ -74,5 +61,5 @@ public static class WFTransitionRules
                 break;
         };
         return WFState.Neplatný;
-    }
+    }    
 }
