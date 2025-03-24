@@ -1,6 +1,4 @@
-﻿using Domain.Abstraction.ServiceInterfaces;
-
-namespace Domain.BaseClasses;
+﻿namespace Domain.Abstraction;
 
 public abstract class BaseDomainObject
 {

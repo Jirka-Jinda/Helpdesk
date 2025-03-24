@@ -29,6 +29,4 @@ public class StorageTests
             Assert.Equal(data[i], result);
         }
     }
-
-    public void 
 }

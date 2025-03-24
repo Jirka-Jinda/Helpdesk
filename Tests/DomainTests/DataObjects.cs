@@ -13,7 +13,7 @@ internal static class DataObjects
             Header = "Ticket Header",
             Description = "Big and long ticket description to be ideally trimmed and not shown whole"
         },
-        SolverChanges = new Domain.Users.User() { Name = "Adolf Bily", UserType = Domain.Users.UserType.Řešitel},
+        //SolverChanges = new Domain.Users.User() { Name = "Adolf Bily", UserType = Domain.Users.UserType.Řešitel },
         TimeCreated = DateTime.Now,        
     };
 

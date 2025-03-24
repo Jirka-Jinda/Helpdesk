@@ -1,4 +1,6 @@
-﻿namespace Domain.Ticket.TicketHistory;
+﻿using Domain.Abstraction;
+
+namespace Domain.Ticket.TicketHistory;
 
 public class SolverChange : BaseDomainObject
 {

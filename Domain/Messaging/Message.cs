@@ -1,4 +1,6 @@
-﻿namespace Domain.Messaging
+﻿using Domain.Abstraction;
+
+namespace Domain.Messaging
 {
     public class Message : BaseDomainObject, IComparable<Message>
     {

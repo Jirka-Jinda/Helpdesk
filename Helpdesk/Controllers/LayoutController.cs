@@ -45,7 +45,7 @@ namespace Helpdesk.Controllers
 		{
             var user = new User()
             {
-                Name = "Adolf Bily",
+                UserName = "Adolf Bily",
                 Email = "email@domain.cz",
                 UserType = UserType.Řešitel
             };

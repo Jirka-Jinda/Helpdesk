@@ -1,4 +1,5 @@
 ﻿using Domain.Ticket.TicketHistory;
+using Domain.Workflow;
 
 namespace Domain.Ticket;
 

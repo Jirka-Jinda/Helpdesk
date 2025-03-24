@@ -8,7 +8,7 @@
         </div>
         <div class="card-body">
             <!-- Current Solver Info -->
-            <p><strong>Assigned Solver:</strong> <span class="badge bg-success">@Model.SolverChanges?.Solver.Name</span></p>
+            <p><strong>Assigned Solver:</strong> <span class="badge bg-success">@Model.SolverChanges?.Solver.UserName</span></p>
             <p><strong>Solver Type:</strong> @Model.SolverChanges?.Solver.UserType</p>
 
             <!-- Solver History -->
@@ -19,7 +19,7 @@
                     @while (change != null)
                     {
                         <li class="border-1 list-group-item">
-                            <strong>@change.Solver.Name</strong> - @change.Description
+                            <strong>@change.Solver.UserName</strong> - @change.Description
                             <br />
                             <small class="text-muted">@change.TimeCreated.ToShortDateString()</small>
                         </li>

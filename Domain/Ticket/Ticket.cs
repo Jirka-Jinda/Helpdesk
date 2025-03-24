@@ -1,4 +1,5 @@
-﻿using Domain.Messaging;
+﻿using Domain.Abstraction;
+using Domain.Messaging;
 using Domain.Ticket.TicketHistory;
 
 namespace Domain.Ticket;

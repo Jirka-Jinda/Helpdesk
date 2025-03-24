@@ -1,4 +1,6 @@
-﻿namespace Domain.Abstraction.BaseInterfaces;
+﻿using Domain.Abstraction;
+
+namespace Database.Repositories;
 
 public interface IRepository<T> where T : BaseDomainObject
 {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 
-namespace Domain.Workflow.Transition;
+namespace Domain.Workflow;
 
 public static class WFTransitionRules
 {

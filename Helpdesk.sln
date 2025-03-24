@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Helpdesk", "Helpdesk\Helpde
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{A46BA1E4-6CAA-417D-B7F7-1961FFBE9CED}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "EntityFramework\Infrastructure.csproj", "{7A8E80EC-3DAB-46A8-8D2A-EF27FAB4BDD0}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{B7FBEBDC-0507-4D83-AAB3-75BEA4EC536C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database", "Database\Database.csproj", "{3BB649F2-D926-4B7E-99BB-A588762BAC67}"
@@ -35,10 +33,6 @@ Global
 		{A46BA1E4-6CAA-417D-B7F7-1961FFBE9CED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A46BA1E4-6CAA-417D-B7F7-1961FFBE9CED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A46BA1E4-6CAA-417D-B7F7-1961FFBE9CED}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7A8E80EC-3DAB-46A8-8D2A-EF27FAB4BDD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7A8E80EC-3DAB-46A8-8D2A-EF27FAB4BDD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7A8E80EC-3DAB-46A8-8D2A-EF27FAB4BDD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7A8E80EC-3DAB-46A8-8D2A-EF27FAB4BDD0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B7FBEBDC-0507-4D83-AAB3-75BEA4EC536C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B7FBEBDC-0507-4D83-AAB3-75BEA4EC536C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7FBEBDC-0507-4D83-AAB3-75BEA4EC536C}.Release|Any CPU.ActiveCfg = Release|Any CPU

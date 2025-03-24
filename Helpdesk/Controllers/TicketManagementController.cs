@@ -1,4 +1,5 @@
-﻿using Domain.Messaging;
+﻿using Database;
+using Domain.Messaging;
 using Domain.Users;
 using Domain.Workflow.Enums;
 
@@ -7,6 +8,7 @@ namespace Helpdesk.Controllers
     public class TicketManagementController : Controller
     {
         private IStorageManager _storageManager;
+        private HelpdeskDbContext _context;
 
         // Delete after testing
         public static Ticket filledTicket = new()
@@ -19,7 +21,7 @@ namespace Helpdesk.Controllers
             SolverChanges = new(
                 new Domain.Users.User()
                 {
-                    Name = "Adolf Bily",
+                    UserName = "Adolf Bily",
                     UserType = Domain.Users.UserType.Řešitel
                 },
                 "solver changed",
@@ -29,13 +31,15 @@ namespace Helpdesk.Controllers
         };     
         //
 
-        public TicketManagementController(IStorageManager storageManager)
+        public TicketManagementController(IStorageManager storageManager, HelpdeskDbContext context)
         {
             _storageManager = storageManager;
+            _context = context;
         }
 
         public IActionResult Overview()
-        {
+        {           
+
             var list = new List<Ticket>() { filledTicket };
 
             return View(list as IReadOnlyCollection<Ticket>);

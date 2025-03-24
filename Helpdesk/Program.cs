@@ -1,6 +1,8 @@
+using Database;
 using Domain.Users;
-using Helpdesk.Models.Time;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,20 +12,20 @@ builder.Services.AddControllersWithViews(options =>
 	options.Filters.Add<NavigationFilter>();
 });
 
+builder.Services.AddDbContextPool<HelpdeskDbContext>(options => { options.UseInMemoryDatabase("dbName"); });
+
 builder.Services.AddAuthorization();
-builder.Services.AddAuthentication().AddCookie(IdentityConstants.ApplicationScheme);
-builder.Services.AddIdentityCore<User>();
+builder.Services.AddAuthentication()
+	.AddCookie(IdentityConstants.ApplicationScheme);
+builder.Services.AddIdentityCore<User>()
+	.AddEntityFrameworkStores<HelpdeskDbContext>();
 
 builder.Services.AddApplicationCollection(options => { });
-
 builder.Services.AddStorageCollection(options =>
 {
 	options.SessionMemoryCacheEntryOptions.SlidingExpiration = TimeSpan.FromMinutes(30);
 });
-
 builder.Services.AddEventPlannerCollection(options => { });
-
-builder.Services.AddTimeCollection(options => { });
 
 var app = builder.Build();
 
