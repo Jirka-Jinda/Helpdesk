@@ -52,6 +52,7 @@ public static class CookieMethods
                 }
                 catch (Exception)
                 {
+                    Console.WriteLine("Failed to deserialize the cookie");
                     // TODO
                 }
             }

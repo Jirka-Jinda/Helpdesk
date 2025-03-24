@@ -22,14 +22,14 @@
     <div class="d-flex vh-100">
         <div id="navigation-sidebar" class="bg-primary d-flex flex-column overflow-y-scroll hide-scrollbar">
             <div class="flex-grow-1">
-                <div> @* Uživatel *@                    
-                    @await Html.PartialAsync("~/Views/Shared/LayoutComponents/UserPartial.cshtml")
+                <div> @* User *@                    
+                    @await Html.PartialAsync("~/Views/Shared/LayoutComponents/UserPanelPartial.cshtml")
                 </div>
-                <div> @* Navigace *@
+                <div> @* Navigation *@
                     @await Html.PartialAsync("~/Views/Shared/LayoutComponents/MainNavigationPartial.cshtml", navigation?.GetMenuNodes())
                 </div>
             </div>
-            <div> @* Navigace - Obecné *@
+            <div> @* Navigation - General, Settings *@
                 <nav class="navbar d-block mb-1">
                     <ul class="nav nav-pills btn-toggle-nav d-flex flex-column mb-auto">
                         <li class="border-top mx-3 my-2"></li>

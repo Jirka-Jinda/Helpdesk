@@ -1,5 +1,13 @@
-﻿<div class="text-center">
-    <h1 class="display-4">Users</h1>
-    <br>
-</div>
+﻿@using Domain.Users
+@using Helpdesk.Models.Cookies
 
+@model User
+
+@inject Helpdesk.Models.Storage.Manager.IStorageManager storageManager
+
+<div>
+	@if (storageManager.GetScoped(out IUserSettings? userSettings) || Model is null)
+		@await Html.PartialAsync("~/Views/Shared/LayoutComponents/UserSettingsPartial.cshtml", (Model, userSettings))
+	else
+		@await Html.PartialAsync("~/Views/Shared/LayoutComponents/ErrorDisplayPartial.cshtml")
+</div>

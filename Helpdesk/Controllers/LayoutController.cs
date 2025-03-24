@@ -1,3 +1,4 @@
+﻿using Domain.Users;
 using Helpdesk.Models.Cookies;
 
 namespace Helpdesk.Controllers
@@ -42,12 +43,21 @@ namespace Helpdesk.Controllers
         [Navigation(IgnoreMove = true)]
         public IActionResult Users()
 		{
-			return View();
+            var user = new User()
+            {
+                Name = "Adolf Bily",
+                Email = "email@domain.cz",
+                UserType = UserType.Řešitel
+            };
+
+            return View(user);
 		}
 
         [Navigation(IgnoreMove = true)]
         public IActionResult Settings()
 		{
+
+
 			return View();
 		}
     }

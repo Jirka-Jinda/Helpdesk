@@ -2,9 +2,14 @@
 {
     public class Message : BaseDomainObject, IComparable<Message>
     {
-        public string Text { get; set; }
-        public User Author { get; set; }
+        public Guid ThreadId { get; set; }
+        public MessageContent Content { get; set; }
         public bool Edited => TimeCreated != TimeLastModified;
+
+        internal Message(MessageContent content)
+        {
+            Content = content;
+        }
 
         public int CompareTo(Message? other)
         {

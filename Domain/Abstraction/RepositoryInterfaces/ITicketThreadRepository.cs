@@ -1,8 +1,9 @@
 ﻿using Domain.Abstraction.BaseInterfaces;
+using Domain.Messaging;
 
 namespace Domain.Abstraction.RepositoryInterfaces;
 
-public interface ITicketThreadRepository : IRepository<TicketThread>
+public interface ITicketThreadRepository : IRepository<MessageThread>
 {
 
 }

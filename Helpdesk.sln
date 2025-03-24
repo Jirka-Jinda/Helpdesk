@@ -16,6 +16,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{51E60F16-FFD6-4EB4-A2BD-7C66AC79B5EB}"
 	ProjectSection(SolutionItems) = preProject
 		.dockerignore = .dockerignore
+		.gitignore = .gitignore
 		docker-compose.yaml = docker-compose.yaml
 		Todo-notes.txt = Todo-notes.txt
 	EndProjectSection

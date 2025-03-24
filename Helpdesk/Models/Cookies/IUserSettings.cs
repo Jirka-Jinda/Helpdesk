@@ -4,8 +4,8 @@ public interface IUserSettings
 {
     public Guid UserId { get; set; }
     public Theme Theme { get; set; }
+    public bool NotificationsEnabled { get; set; }
 
     public void SwitchTheme();
-    //public static abstract string Serialize(IUserSettings settings);
-    //public static abstract IUserSettings Deserialize(string json);
+    public void SwtichNotificationsEnabled();
 }

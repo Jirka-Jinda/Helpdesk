@@ -1,0 +1,92 @@
+﻿@using Domain.Users
+@using Helpdesk.Models.Cookies
+
+@model (User, IUserSettings)
+@{
+    var user = Model.Item1;
+    var settings = Model.Item2;
+}
+
+<div class="container mt-4">
+    <!-- Navigation Tabs -->
+    <ul class="nav nav-tabs" id="userTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="info-tab" data-bs-toggle="tab" data-bs-target="#info" type="button" role="tab">Uživatel</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="proxy-tab" data-bs-toggle="tab" data-bs-target="#proxy" type="button" role="tab">Přístup v zastoupení</button>
+        </li>
+    </ul>
+
+    <!-- Tab Content -->
+    <div class="tab-content mt-3" id="userTabContent">
+        <!-- User Info & Settings -->
+        <div class="tab-pane fade show active" id="info" role="tabpanel">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h5>User Information</h5>
+                </div>
+                <div class="card-body">
+                    <p><strong>Username:</strong> @user.Name</p>
+                    <p><strong>Email:</strong> @user.Email</p>
+
+                    <!-- Theme Switch -->
+                    <div class="form-check form-switch">
+                        <label class="form-check-label" for="themeSwitch">Dark Mode</label>
+                        <input class="form-check-input" type="checkbox" id="themeSwitch" @(settings.Theme == Theme.Dark ? "checked" : "") onchange="toggleTheme()">
+                    </div>
+
+                    <!-- Notifications Switch -->
+                    <div class="form-check form-switch mt-2">
+                        <label class="form-check-label" for="notificationsSwitch">Enable Notifications</label>
+                        <input class="form-check-input" type="checkbox" id="notificationsSwitch" @(settings.NotificationsEnabled ? "checked" : "") onchange="toggleNotifications()">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Proxy Access -->
+        <div class="tab-pane fade" id="proxy" role="tabpanel">
+            <div class="card shadow-sm">
+                <div class="card-header bg-warning text-white">
+                    <h5>Proxy Access</h5>
+                </div>
+                <div class="card-body">
+                    <p><strong>Your Proxy Code:</strong> <span class="badge bg-secondary">Generated code here</span></p>
+
+                    <h6 class="mt-3">Act as Another User</h6>
+                    <form id="proxyForm">
+                        <div class="mb-3">
+                            <label for="proxyCode" class="form-label">Enter Proxy Code</label>
+                            <input type="text" class="form-control" id="proxyCode" placeholder="Enter code" required>
+                        </div>
+                        <button type="button" class="btn btn-primary w-100" onclick="activateProxy()">Activate Proxy</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function activateProxy() {
+        let code = document.getElementById("proxyCode").value;
+        if (code.trim() !== "") {
+            alert("Proxy activated for code: " + code);
+        } else {
+            alert("Please enter a valid proxy code.");
+        }
+    }
+
+    function toggleTheme() {
+        let isDark = document.getElementById("themeSwitch").checked;
+        alert("Theme changed to " + (isDark ? "Dark Mode" : "Light Mode"));
+        // Here you can make an AJAX call to save the preference
+    }
+
+    function toggleNotifications() {
+        let isEnabled = document.getElementById("notificationsSwitch").checked;
+        alert("Notifications " + (isEnabled ? "Enabled" : "Disabled"));
+        // Here you can make an AJAX call to save the preference
+    }
+</script>

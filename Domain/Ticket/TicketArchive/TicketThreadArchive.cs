@@ -1,6 +1,8 @@
-﻿namespace Domain.TicketArchive
+﻿using Domain.Messaging;
+
+namespace Domain.TicketArchive
 {
-    public class TicketThreadArchive : TicketThread
+    public class MessageThreadArchive : MessageThread
     {
 
     }

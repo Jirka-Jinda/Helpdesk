@@ -1,0 +1,8 @@
+﻿@using Helpdesk.Controllers.Constants
+@model IReadOnlyCollection<Ticket>
+
+@{
+    ViewData["Title"] = "Tickets";
+}
+
+@await Html.PartialAsync("~/Views/Components/TicketListPartial.cshtml", Model)

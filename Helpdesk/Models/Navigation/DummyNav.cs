@@ -25,10 +25,12 @@
 
             var s1 = new NavigationNode(new NodeData() { StaticName = "Test", DynamicName = "Test", Icon = "arrow-right-square" }, new NavigationRoute("", "TicketCreation", "Index"));
             var s2 = new NavigationNode(new NodeData() { StaticName = "SubNode2", DynamicName = "SubNode2", Icon = "arrow-right-square" }, new NavigationRoute("", "", ""));
+            var s3 = new NavigationNode(new NodeData() { StaticName = "Ticket List", DynamicName = "List", Icon = "arrow-right-square" }, new NavigationRoute("", "TicketManagement", "Overview"));
+
 
             navigation.Root.AppendChildren(new List<NavigationNode>() { n1, n2, n3, n4, n5, n6, n7 });
 
-            n1.AppendChildren(new List<NavigationNode>() { s1, s2 });
+            n1.AppendChildren(new List<NavigationNode>() { s1, s2, s3 });
 
             return navigation;
         }

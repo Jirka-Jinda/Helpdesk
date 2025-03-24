@@ -1,6 +1,6 @@
 ﻿namespace Domain.TicketArchive
 {
-    public class TicketChangeArchive : TicketChange
+    public class TicketChangeArchive
     {
 
     }

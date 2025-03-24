@@ -4,11 +4,13 @@ public sealed class UserSettings : IUserSettings
 {
     public Guid UserId { get; set; }
     public Theme Theme { get; set; }
+    public bool NotificationsEnabled { get; set; }
 
     public UserSettings()
     {
         UserId = Guid.NewGuid();
         Theme = Theme.Light;
+        NotificationsEnabled = true;
     }
 
     public void SwitchTheme()
@@ -17,6 +19,11 @@ public sealed class UserSettings : IUserSettings
             Theme = Theme.Dark;
         else if (Theme == Theme.Dark)
             Theme = Theme.Light;
+    }
+
+    public void SwtichNotificationsEnabled()
+    {
+        NotificationsEnabled = !NotificationsEnabled;
     }
 
     public static string Serialize(IUserSettings settings)

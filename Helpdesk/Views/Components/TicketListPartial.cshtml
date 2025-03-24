@@ -1,0 +1,36 @@
+﻿@model IReadOnlyCollection<Ticket>
+
+<div class="container mt-4">
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h4>Požadavky</h4>
+        </div>
+        <div class="card-body p-0">
+            <table class="table table-hover">
+                <thead class="bg-light">
+                    <tr>
+                        <th>Název</th>
+                        <th>Zadavatel</th>
+                        <th>Vytvořeno</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var ticket in Model)
+                    {
+                        <tr onclick="location.href = '@Url.Action("Detail", "TicketManagement", new { ticketId = ticket.Id })'"
+                            style="cursor: pointer;">
+                            <td class="text-decoration-none fw-bold">@ticket.Data.Header</td>
+                            <td>@ticket.UserCreated</td>
+                            <td>@ticket.TimeCreated.ToShortDateString()</td>
+                            <td>
+                                <span class="badge bg-info px-1">@ticket.WFState</span>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

@@ -14,13 +14,11 @@ public class MessageThread : BaseDomainObject, IEnumerable<Message>
         }
     }
 
-    public void Add(Message message)
+    public void AddMessage(MessageContent content)
     {
-        _messages.Add(message);
-        _messages.Sort();
+        _messages.Add(new Message(content));
+        _messages.OrderDescending();        
     }
-
-
 
 #region Enumeration
     public IEnumerator<Message> GetEnumerator()

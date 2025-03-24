@@ -34,7 +34,7 @@ public static class WFTransitionRules
                 if (action == WFAction.Založení) return WFState.Založený;
                 break;
             case WFState.Založený:
-                if (action == WFAction.Do_řešení) return WFState.Založený;
+                if (action == WFAction.Do_řešení) return WFState.Nepřidělený;
                 break;
             case WFState.Nepřidělený:
                 if (action == WFAction.Přidělení_ručně) return WFState.V_řešení;

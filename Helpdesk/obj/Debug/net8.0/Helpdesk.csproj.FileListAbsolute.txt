@@ -466,3 +466,5 @@ C:\Code\Private\Helpdesk\Helpdesk\obj\Debug\net8.0\refint\Helpdesk.dll
 C:\Code\Private\Helpdesk\Helpdesk\obj\Debug\net8.0\Helpdesk.pdb
 C:\Code\Private\Helpdesk\Helpdesk\obj\Debug\net8.0\Helpdesk.genruntimeconfig.cache
 C:\Code\Private\Helpdesk\Helpdesk\obj\Debug\net8.0\ref\Helpdesk.dll
+C:\Code\Private\Helpdesk\Helpdesk\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Code\Private\Helpdesk\Helpdesk\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll

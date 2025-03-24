@@ -1,4 +1,6 @@
+using Domain.Users;
 using Helpdesk.Models.Time;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +9,10 @@ builder.Services.AddControllersWithViews(options =>
     options.Filters.Add<CookieFilter>();
 	options.Filters.Add<NavigationFilter>();
 });
+
+builder.Services.AddAuthorization();
+builder.Services.AddAuthentication().AddCookie(IdentityConstants.ApplicationScheme);
+builder.Services.AddIdentityCore<User>();
 
 builder.Services.AddApplicationCollection(options => { });
 

@@ -1,4 +1,6 @@
 ﻿using Helpdesk.Models.Cookies;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Helpdesk.Models.Storage.Manager;
 
@@ -40,7 +42,6 @@ public class StorageManager : IStorageManager
             return false;
         }
     }
-
 
     public bool PutScoped<T>(T data)
     {

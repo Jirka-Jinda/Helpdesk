@@ -15,7 +15,7 @@ public class NavigationFilter : ActionFilterAttribute
         storageManager = sm;
     }
 
-    // Called before action mathed after model binding
+    // Called before action mathod after model binding
     // Use for shortcutting or redirecting
     public override void OnActionExecuting(ActionExecutingContext context)
     {
