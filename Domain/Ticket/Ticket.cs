@@ -12,8 +12,9 @@ public partial class Ticket : BaseDomainObject
     public MessageThread Thread { get; set; }
     public WFState WFState { get; set; }
     public SolverChange? SolverChanges { get; set; }
-    public TicketData Data { get; set; }
-    
+    public string Header { get; set; }
+    public string Description { get; set; }
+
     public Ticket()
     {
         Hierarchy = this;

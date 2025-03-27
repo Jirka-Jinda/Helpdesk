@@ -25,13 +25,15 @@ public partial class Ticket
         return false;
     }
 
-    public bool CreateSolverTransition(User solver, string description = "", TicketChange? change = null)
+    public bool CreateSolverTransition(User.User solver, string description = "", TicketChange? change = null)
     {
         var newSolver = new SolverChange(
             solver, 
             description,
             SolverChanges
         );
+        if (change is not null)
+            newSolver.TicketTransition = change;
 
         SolverChanges = newSolver;
 

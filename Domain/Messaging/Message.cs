@@ -5,18 +5,20 @@ namespace Domain.Messaging
     public class Message : BaseDomainObject, IComparable<Message>
     {
         public Guid ThreadId { get; set; }
-        public MessageContent Content { get; set; }
+        public string Text { get; set; }
         public bool Edited => TimeCreated != TimeLastModified;
 
-        internal Message(MessageContent content)
+        private Message() { }        
+
+        public Message(string text)
         {
-            Content = content;
+            Text = text;
         }
 
         public int CompareTo(Message? other)
         {
             if (other == null) 
-                throw new ArgumentNullException("Message is null");
+                throw new ArgumentNullException(typeof(Message).ToString());
             else
                 return other.TimeCreated.CompareTo(TimeCreated);
         }

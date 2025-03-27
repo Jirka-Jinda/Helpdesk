@@ -1,0 +1,19 @@
+# name: "Helpdesk"
+
+services:
+  database:
+    image: postgres:latest
+    container_name: HelpdeskPostgres
+    ports:
+        - 32668:5432
+    environment:
+        - POSTGRES_USER=admin
+        - POSTGRES_PASSWORD=0iZZkGCfP4slqqd
+
+  helpdesk:
+    container_name: HelpdeskApplication
+    build:
+      context: .
+      dockerfile: Helpdesk/Dockerfile
+
+# docker run --name HelpdeskPostgres -p 32668:5432 -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=0iZZkGCfP4slqqd -d postgres:latest

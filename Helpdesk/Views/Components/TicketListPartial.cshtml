@@ -20,7 +20,7 @@
                     {
                         <tr onclick="location.href = '@Url.Action("Detail", "TicketManagement", new { ticketId = ticket.Id })'"
                             style="cursor: pointer;">
-                            <td class="text-decoration-none fw-bold">@ticket.Data.Header</td>
+                            <td class="text-decoration-none fw-bold">@ticket.Header</td>
                             <td>@ticket.UserCreated</td>
                             <td>@ticket.TimeCreated.ToShortDateString()</td>
                             <td>

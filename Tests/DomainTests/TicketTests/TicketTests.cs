@@ -1,9 +1,8 @@
-﻿using Domain.Ticket;
-using Domain.Ticket.TicketHistory;
+﻿using Domain.Ticket.TicketHistory;
 using Domain.Workflow.Enums;
 using static Tests.DomainTests.DataObjects;
 
-namespace Tests.DomainTests.Ticket;
+namespace Tests.DomainTests.TicketTests;
 
 public class TicketTests
 {
@@ -17,10 +16,7 @@ public class TicketTests
 	{
         var ticket = emptyTicket;
 
-        var content = new Domain.Messaging.MessageContent();
-        content.Text = "new text";
-
-        ticket.Thread.AddMessage(content);
+        ticket.Thread.AddMessage("new text");
 
         if (ticket.CreateStateTransition(WFAction.Založení))
             Console.WriteLine("Zalozeno");

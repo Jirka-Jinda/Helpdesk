@@ -6,24 +6,17 @@ public static class WFTransitionRules
 {
     public static ReadOnlyCollection<WFAction> StateActions(WFState state)
     {
-        switch (state)
+        return state switch
         {
-            case WFState.Žádný:
-                return new ReadOnlyCollection<WFAction>(new List<WFAction>() { WFAction.Založení });
-            case WFState.Založený:
-                return new ReadOnlyCollection<WFAction>(new List<WFAction>() { WFAction.Do_řešení });
-            case WFState.Nepřidělený:
-                return new ReadOnlyCollection<WFAction>(new List<WFAction>() { WFAction.Přidělení_ručně, WFAction.Přidělení_timer, WFAction.Přidělení_manager });
-            case WFState.V_řešení:
-                return new ReadOnlyCollection<WFAction>(new List<WFAction>() { WFAction.Odložení, WFAction.Vyřešení, WFAction.Žádost_o_potvrzení, WFAction.Žádost_o_spolupráci, WFAction.Žádost_o_vyjádření_zadavatele, WFAction.Změna_řešitele });
-            case WFState.Neaktivní:
-                return new ReadOnlyCollection<WFAction>(new List<WFAction>() { WFAction.Reaktivace_automatická, WFAction.Reaktivace_ruční });                
-            case WFState.Uzavřený:
-                return new ReadOnlyCollection<WFAction>(new List<WFAction>() { WFAction.Vrácení });
-            case WFState.Vrácený:
-                return new ReadOnlyCollection<WFAction>(new List<WFAction>() { WFAction.Vrácení });
-        }
-        return new ReadOnlyCollection<WFAction>(new List<WFAction>());
+            WFState.Žádný => new ReadOnlyCollection<WFAction>([WFAction.Založení]),
+            WFState.Založený => new ReadOnlyCollection<WFAction>([WFAction.Do_řešení]),
+            WFState.Nepřidělený => new ReadOnlyCollection<WFAction>([WFAction.Přidělení_ručně, WFAction.Přidělení_timer, WFAction.Přidělení_manager]),
+            WFState.V_řešení => new ReadOnlyCollection<WFAction>([WFAction.Odložení, WFAction.Vyřešení, WFAction.Žádost_o_potvrzení, WFAction.Žádost_o_spolupráci, WFAction.Žádost_o_vyjádření_zadavatele, WFAction.Změna_řešitele]),
+            WFState.Neaktivní => new ReadOnlyCollection<WFAction>([WFAction.Reaktivace_automatická, WFAction.Reaktivace_ruční]),
+            WFState.Uzavřený => new ReadOnlyCollection<WFAction>([WFAction.Vrácení]),
+            WFState.Vrácený => new ReadOnlyCollection<WFAction>([WFAction.Vrácení]),
+            _ => new ReadOnlyCollection<WFAction>([]),
+        };
     }
 
     public static WFState ActionResolutions(WFState startState, WFAction action)

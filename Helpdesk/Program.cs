@@ -1,5 +1,5 @@
 using Database;
-using Domain.Users;
+using Domain.User;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,7 +12,10 @@ builder.Services.AddControllersWithViews(options =>
 	options.Filters.Add<NavigationFilter>();
 });
 
-builder.Services.AddDbContextPool<HelpdeskDbContext>(options => { options.UseInMemoryDatabase("dbName"); });
+builder.Services.AddDbContextPool<HelpdeskDbContext>(options => 
+{
+    options.UseNpgsql(builder.Configuration["DbSettings:ConnectionString"], b => b.MigrationsAssembly("Database"));
+});
 
 builder.Services.AddAuthorization();
 builder.Services.AddAuthentication()
@@ -36,6 +39,8 @@ if (!app.Environment.IsDevelopment())
 	// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
 	app.UseHsts();
 }
+
+await app.Services.ApplyMigrations(builder.Configuration);
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

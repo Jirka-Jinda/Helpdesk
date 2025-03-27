@@ -1,66 +1,17 @@
 ﻿using Domain.Abstraction;
-using System.Collections;
-using System.Collections.ObjectModel;
 
 namespace Domain.Messaging;
 
-public class MessageThread : BaseDomainObject, IEnumerable<Message>
+public class MessageThread : BaseDomainObject
 {
-    private List<Message> _messages = new();
-    public ReadOnlyCollection<Message> Messages
+    public List<Message> Messages { get; set; } = [];
+
+    public MessageThread() { }
+
+    public void AddMessage(string text)
     {
-        get
-        {
-            return new ReadOnlyCollection<Message>(_messages);
-        }
+        Messages.Add(new Message(text));
+        Messages.OrderDescending();        
     }
-
-    public void AddMessage(MessageContent content)
-    {
-        _messages.Add(new Message(content));
-        _messages.OrderDescending();        
-    }
-
-#region Enumeration
-    public IEnumerator<Message> GetEnumerator()
-    {
-        return new ThreadEnumerator(Messages);
-    }
-
-    IEnumerator IEnumerable.GetEnumerator()
-    {
-        return GetEnumerator();
-    }
-
-    class ThreadEnumerator : IEnumerator<Message>
-    {
-        private int _index = -1;
-        public ReadOnlyCollection<Message> Messages;
-        public object Current => Messages[_index];
-
-        Message IEnumerator<Message>.Current => Messages[_index];
-
-        public ThreadEnumerator(ReadOnlyCollection<Message> messages)
-        {
-            Messages = messages;
-        }
-
-        public bool MoveNext()
-        {
-            _index++;
-            return _index < Messages.Count();
-        }
-
-        public void Reset()
-        {
-            _index = -1;
-        }
-
-        public void Dispose()
-        {         
-        }
-    }
-#endregion
-
 }
 

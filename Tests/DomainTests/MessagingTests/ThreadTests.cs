@@ -17,18 +17,14 @@ public class ThreadTests
         int iterations = 6;
 
         var ticket = emptyTicket;
-        var lateContent = new MessageContent();
-        lateContent.Text = "-1";
         await Task.Delay(2);
 
         for (int i = 0; i < iterations; i++)
         {
-            var content = new MessageContent();
-            content.Text = i.ToString();
-            ticket.Thread.AddMessage(content);
+            ticket.Thread.AddMessage(i.ToString());
         }
 
-        ticket.Thread.AddMessage(lateContent);
+        ticket.Thread.AddMessage("-1");
 
 
     }

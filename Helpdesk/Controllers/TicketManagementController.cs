@@ -1,6 +1,5 @@
 ﻿using Database;
-using Domain.Messaging;
-using Domain.Users;
+using Domain.User;
 using Domain.Workflow.Enums;
 
 namespace Helpdesk.Controllers
@@ -13,52 +12,53 @@ namespace Helpdesk.Controllers
         // Delete after testing
         public static Ticket filledTicket = new()
         {
-            Data = new TicketData()
-            {
-                Header = "Ticket Header",
-                Description = "Big and long ticket description to be ideally trimmed and not shown whole"
-            },
+            Header = "Ticket Header",
+            Description = "Big and long ticket description to be ideally trimmed and not shown whole",
             SolverChanges = new(
-                new Domain.Users.User()
+                new Domain.User.User()
                 {
                     UserName = "Adolf Bily",
-                    UserType = Domain.Users.UserType.Řešitel
+                    UserType = Domain.User.UserType.Řešitel
                 },
                 "solver changed",
                 null
-            ),
-            TimeCreated = DateTime.Now,
+            )
         };     
         //
 
         public TicketManagementController(IStorageManager storageManager, HelpdeskDbContext context)
         {
             _storageManager = storageManager;
-            _context = context;
+            _context = context;            
         }
 
         public IActionResult Overview()
-        {           
+        {   
+            _context.Tickets.Add(filledTicket);
+            _context.SaveChanges();
 
-            var list = new List<Ticket>() { filledTicket };
+            // Create cash, then retrieve one needed
+            var allTickets = _context.Tickets.ToList();
 
-            return View(list as IReadOnlyCollection<Ticket>);
+            return View(allTickets);
         }
 
-        [Navigation(NavigationName = $"Detail")]
+        [Navigation(NavigationName = "Detail")]
         public IActionResult Detail(Guid ticketId)
         {
-            Console.WriteLine(ticketId);
+            var ticket = _context.Tickets.Where(t => t.Id == ticketId).FirstOrDefault();
 
-            return View(filledTicket);
+            return View(ticket);
         }
 
         [Navigation(IgnoreMove = true)]
         public IActionResult PostMessage(Guid ticketId, string content)
         {
-            filledTicket.Thread.AddMessage(new MessageContent() { Text = content });
+            var ticket = _context.Tickets.Where(t => t.Id == ticketId).FirstOrDefault();
+            ticket?.Thread.AddMessage(content);
+            _context.SaveChanges();
 
-            return RedirectToAction("Detail");
+            return View("Detail", ticket);
         }
 
         [Navigation(IgnoreMove = true)]

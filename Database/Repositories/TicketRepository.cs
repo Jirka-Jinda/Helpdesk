@@ -1,4 +1,6 @@
-﻿namespace Database.Repositories;
+﻿using Domain.Ticket;
+
+namespace Database.Repositories;
 
 public class TicketRepository
 {
@@ -8,6 +10,5 @@ public class TicketRepository
     {
         _context = context;
     }
-
 
 }

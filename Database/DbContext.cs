@@ -1,7 +1,7 @@
 ﻿using Domain.Messaging;
 using Domain.Ticket;
 using Domain.Ticket.TicketHistory;
-using Domain.Users;
+using Domain.User;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,11 +9,11 @@ namespace Database;
 
 public class HelpdeskDbContext : IdentityDbContext<User>
 {
-    DbSet<Ticket> Tickets { get; set; }
-    DbSet<TicketChange> TicketChanges { get; set; }
-    DbSet<SolverChange> SolverChanges { get; set; }    
-    DbSet<MessageThread> Threads { get; set; }
-    DbSet<Message> Messages { get; set; }
+    public DbSet<Ticket> Tickets { get; set; }
+    public DbSet<TicketChange> TicketChanges { get; set; }
+    public DbSet<SolverChange> SolverChanges { get; set; }    
+    public DbSet<MessageThread> Threads { get; set; }
+    public DbSet<Message> Messages { get; set; }
     
     public HelpdeskDbContext(DbContextOptions<HelpdeskDbContext> options) : base(options)
     {

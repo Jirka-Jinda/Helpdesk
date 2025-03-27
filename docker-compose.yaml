@@ -1,6 +1,13 @@
 name: helpdesk_app
 
 services:
-  application:
+  # application:
       
   database:
+    image: postgres:latest
+    container_name: HelpdeskPgSQL
+    ports:
+        - 32771:5432
+    environment:
+        - POSTGRES_USER=admin
+        - POSTGRES_PASSWORD=0iZZkGCfP4slqqd
