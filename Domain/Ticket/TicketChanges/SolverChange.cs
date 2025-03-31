@@ -1,8 +1,8 @@
 ﻿using Domain.Abstraction;
 
-namespace Domain.Ticket.TicketHistory;
+namespace Domain.Ticket.TicketChanges;
 
-public class SolverChange : BaseDomainObject
+public class SolverChange : DomainObject
 {
     public SolverChange? PreviousTransition { get; init; }
     public TicketChange? TicketTransition { get; set; }
@@ -18,4 +18,3 @@ public class SolverChange : BaseDomainObject
         this.PreviousTransition = PreviousTransition;
     }
 }
- 

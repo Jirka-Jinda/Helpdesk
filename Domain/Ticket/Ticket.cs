@@ -1,10 +1,10 @@
 ﻿using Domain.Abstraction;
 using Domain.Messaging;
-using Domain.Ticket.TicketHistory;
+using Domain.Ticket.TicketChanges;
 
 namespace Domain.Ticket;
 
-public partial class Ticket : BaseDomainObject
+public partial class Ticket : DomainObject
 {
     public Ticket Hierarchy { get; set; }
     public TicketType Type { get; set; }

@@ -2,13 +2,13 @@
 
 namespace Domain.Messaging
 {
-    public class Message : BaseDomainObject, IComparable<Message>
+    public class Message : DomainObject, IComparable<Message>
     {
         public Guid ThreadId { get; set; }
         public string Text { get; set; }
         public bool Edited => TimeCreated != TimeLastModified;
 
-        private Message() { }        
+        private Message() { }
 
         public Message(string text)
         {
@@ -17,7 +17,7 @@ namespace Domain.Messaging
 
         public int CompareTo(Message? other)
         {
-            if (other == null) 
+            if (other == null)
                 throw new ArgumentNullException(typeof(Message).ToString());
             else
                 return other.TimeCreated.CompareTo(TimeCreated);

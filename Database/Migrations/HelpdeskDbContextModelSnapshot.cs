@@ -149,7 +149,7 @@ namespace Database.Migrations
                     b.ToTable("Tickets");
                 });
 
-            modelBuilder.Entity("Domain.Ticket.TicketHistory.SolverChange", b =>
+            modelBuilder.Entity("Domain.Ticket.TicketChanges.SolverChange", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -195,7 +195,7 @@ namespace Database.Migrations
                     b.ToTable("SolverChanges");
                 });
 
-            modelBuilder.Entity("Domain.Ticket.TicketHistory.TicketChange", b =>
+            modelBuilder.Entity("Domain.Ticket.TicketChanges.TicketChange", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -483,7 +483,7 @@ namespace Database.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Domain.Ticket.TicketHistory.SolverChange", "SolverChanges")
+                    b.HasOne("Domain.Ticket.TicketChanges.SolverChange", "SolverChanges")
                         .WithMany()
                         .HasForeignKey("SolverChangesId");
 
@@ -493,7 +493,7 @@ namespace Database.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Domain.Ticket.TicketHistory.TicketChange", "TicketChanges")
+                    b.HasOne("Domain.Ticket.TicketChanges.TicketChange", "TicketChanges")
                         .WithMany()
                         .HasForeignKey("TicketChangesId");
 
@@ -518,9 +518,9 @@ namespace Database.Migrations
                     b.Navigation("UserLastModified");
                 });
 
-            modelBuilder.Entity("Domain.Ticket.TicketHistory.SolverChange", b =>
+            modelBuilder.Entity("Domain.Ticket.TicketChanges.SolverChange", b =>
                 {
-                    b.HasOne("Domain.Ticket.TicketHistory.SolverChange", "PreviousTransition")
+                    b.HasOne("Domain.Ticket.TicketChanges.SolverChange", "PreviousTransition")
                         .WithMany()
                         .HasForeignKey("PreviousTransitionId");
 
@@ -528,7 +528,7 @@ namespace Database.Migrations
                         .WithMany()
                         .HasForeignKey("SolverId");
 
-                    b.HasOne("Domain.Ticket.TicketHistory.TicketChange", "TicketTransition")
+                    b.HasOne("Domain.Ticket.TicketChanges.TicketChange", "TicketTransition")
                         .WithMany()
                         .HasForeignKey("TicketTransitionId");
 
@@ -551,13 +551,13 @@ namespace Database.Migrations
                     b.Navigation("UserLastModified");
                 });
 
-            modelBuilder.Entity("Domain.Ticket.TicketHistory.TicketChange", b =>
+            modelBuilder.Entity("Domain.Ticket.TicketChanges.TicketChange", b =>
                 {
                     b.HasOne("Domain.User.User", "Author")
                         .WithMany()
                         .HasForeignKey("AuthorId");
 
-                    b.HasOne("Domain.Ticket.TicketHistory.TicketChange", "PreviousTransition")
+                    b.HasOne("Domain.Ticket.TicketChanges.TicketChange", "PreviousTransition")
                         .WithMany()
                         .HasForeignKey("PreviousTransitionId");
 

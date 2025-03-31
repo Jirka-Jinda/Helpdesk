@@ -1,4 +1,4 @@
-﻿using Domain.Ticket.TicketHistory;
+﻿using Domain.Ticket.TicketChanges;
 using Domain.Workflow;
 
 namespace Domain.Ticket;
@@ -28,7 +28,7 @@ public partial class Ticket
     public bool CreateSolverTransition(User.User solver, string description = "", TicketChange? change = null)
     {
         var newSolver = new SolverChange(
-            solver, 
+            solver,
             description,
             SolverChanges
         );

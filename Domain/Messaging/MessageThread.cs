@@ -2,7 +2,7 @@
 
 namespace Domain.Messaging;
 
-public class MessageThread : BaseDomainObject
+public class MessageThread : DomainObject
 {
     public List<Message> Messages { get; set; } = [];
 
@@ -11,7 +11,7 @@ public class MessageThread : BaseDomainObject
     public void AddMessage(string text)
     {
         Messages.Add(new Message(text));
-        Messages.OrderDescending();        
+        Messages.OrderDescending();
     }
 }
 

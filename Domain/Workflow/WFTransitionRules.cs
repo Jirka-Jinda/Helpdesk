@@ -52,7 +52,8 @@ public static class WFTransitionRules
             case WFState.Vrácený:
                 if (action == WFAction.Vrácení) return WFState.V_řešení;
                 break;
-        };
+        }
+        ;
         return WFState.Neplatný;
-    }    
+    }
 }

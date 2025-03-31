@@ -1,6 +1,6 @@
 ﻿using Domain.Messaging;
 using Domain.Ticket;
-using Domain.Ticket.TicketHistory;
+using Domain.Ticket.TicketChanges;
 using Domain.User;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;

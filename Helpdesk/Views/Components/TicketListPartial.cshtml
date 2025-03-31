@@ -21,7 +21,7 @@
                         <tr onclick="location.href = '@Url.Action("Detail", "TicketManagement", new { ticketId = ticket.Id })'"
                             style="cursor: pointer;">
                             <td class="text-decoration-none fw-bold">@ticket.Header</td>
-                            <td>@ticket.UserCreated</td>
+                            <td>@ticket.UserCreated.UserName</td>
                             <td>@ticket.TimeCreated.ToShortDateString()</td>
                             <td>
                                 <span class="badge bg-info px-1">@ticket.WFState</span>

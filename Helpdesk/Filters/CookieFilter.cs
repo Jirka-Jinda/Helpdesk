@@ -1,6 +1,6 @@
 ﻿using Helpdesk.Models.Cookies;
 
-namespace Helpdesk.Filters.Global;
+namespace Helpdesk.Filters;
 
 /// <summary>
 /// Cookie handling from request to response.

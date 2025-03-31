@@ -2,7 +2,7 @@
 
 namespace Domain.Abstraction;
 
-public abstract class BaseDomainObject
+public abstract class DomainObject
 {
     [Key]
     public Guid Id { get; set; }
@@ -11,7 +11,7 @@ public abstract class BaseDomainObject
     public DateTime TimeLastModified { get; set; }
     public User.User UserLastModified { get; set; }
 
-    public BaseDomainObject()
+    public DomainObject()
     {
         //Id = Guid.NewGuid();
         TimeCreated = TimeLastModified = DateTime.UtcNow;

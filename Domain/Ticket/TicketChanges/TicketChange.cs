@@ -1,8 +1,8 @@
 ﻿using Domain.Abstraction;
 
-namespace Domain.Ticket.TicketHistory;
+namespace Domain.Ticket.TicketChanges;
 
-public class TicketChange : BaseDomainObject
+public class TicketChange : DomainObject
 {
     public TicketChange? PreviousTransition { get; init; }
     public WFState State { get; init; }

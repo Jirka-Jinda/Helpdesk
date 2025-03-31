@@ -1,4 +1,5 @@
-﻿using Domain.User;
+﻿using Database;
+using Domain.User;
 using Helpdesk.Models.Cookies;
 
 namespace Helpdesk.Controllers
@@ -7,11 +8,17 @@ namespace Helpdesk.Controllers
 	{
 		private IStorageManager storageManager;
         private ILogger<LayoutController> logger;
+        private HelpdeskDbContext _context;        
 
-        public LayoutController(IStorageManager sm, ILogger<LayoutController> lg)
+        public LayoutController(IStorageManager sm, ILogger<LayoutController> lg, HelpdeskDbContext context)
         {
             logger = lg;
             storageManager = sm;            
+            _context = context;
+
+            //DbDataBuilder dataBuilder = new(context);
+            //dataBuilder.PopulateUsers().PopulateTickets();
+            // docker run --name HelpdeskPostgres -p 32668:5432 -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=0iZZkGCfP4slqqd -d postgres:latest
         }
 
         public IActionResult Index()

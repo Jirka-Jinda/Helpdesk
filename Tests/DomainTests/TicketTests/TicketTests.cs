@@ -1,4 +1,4 @@
-﻿using Domain.Ticket.TicketHistory;
+﻿using Domain.Ticket.TicketChanges;
 using Domain.Workflow.Enums;
 using static Tests.DomainTests.DataObjects;
 

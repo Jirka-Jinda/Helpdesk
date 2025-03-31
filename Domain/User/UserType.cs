@@ -3,6 +3,6 @@
 public enum UserType
 {
     Zadavatel,
-    Řešitel,    
+    Řešitel,
     Auditor
 }
