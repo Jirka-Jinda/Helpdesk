@@ -1,22 +1,18 @@
 ﻿using Domain.User;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 
-public class UserService
+public class UserService(UserManager<User> userManager, SignInManager<User> singInManager)
 {
-    private readonly IHttpContextAccessor _httpContextAccessor;
+    private readonly UserManager<User> _userManager = userManager;
+    private readonly SignInManager<User> _signInManager = singInManager;
 
-    public UserService(IHttpContextAccessor httpContextAccessor)
+    public UserManager<User> GetUserManager()
     {
-        _httpContextAccessor = httpContextAccessor;
+        return _userManager;
     }
 
-    public string GetCurrentUserId()
-    {        
-        throw new NotImplementedException();
-    }
-
-    public User GetCurrentUser()
+    public SignInManager<User> GetSignInManager()
     {
-        throw new NotImplementedException();
+        return _signInManager;
     }
 }

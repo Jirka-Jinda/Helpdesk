@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Database.Migrations
 {
     [DbContext(typeof(HelpdeskDbContext))]
-    [Migration("20250326175729_TestCreate")]
-    partial class TestCreate
+    [Migration("20250406163942_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -108,13 +108,10 @@ namespace Database.Migrations
                     b.Property<Guid>("HierarchyId")
                         .HasColumnType("uuid");
 
-                    b.Property<Guid?>("SolverChangesId")
-                        .HasColumnType("uuid");
+                    b.Property<string>("SolverId")
+                        .HasColumnType("text");
 
                     b.Property<Guid>("ThreadId")
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid?>("TicketChangesId")
                         .HasColumnType("uuid");
 
                     b.Property<DateTime>("TimeCreated")
@@ -139,11 +136,9 @@ namespace Database.Migrations
 
                     b.HasIndex("HierarchyId");
 
-                    b.HasIndex("SolverChangesId");
+                    b.HasIndex("SolverId");
 
                     b.HasIndex("ThreadId");
-
-                    b.HasIndex("TicketChangesId");
 
                     b.HasIndex("UserCreatedId");
 
@@ -159,14 +154,13 @@ namespace Database.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("text");
-
-                    b.Property<Guid?>("PreviousTransitionId")
-                        .HasColumnType("uuid");
 
                     b.Property<string>("SolverId")
                         .HasColumnType("text");
+
+                    b.Property<Guid?>("TicketId")
+                        .HasColumnType("uuid");
 
                     b.Property<Guid?>("TicketTransitionId")
                         .HasColumnType("uuid");
@@ -185,9 +179,9 @@ namespace Database.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PreviousTransitionId");
-
                     b.HasIndex("SolverId");
+
+                    b.HasIndex("TicketId");
 
                     b.HasIndex("TicketTransitionId");
 
@@ -211,14 +205,13 @@ namespace Database.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("text");
-
-                    b.Property<Guid?>("PreviousTransitionId")
-                        .HasColumnType("uuid");
 
                     b.Property<int>("State")
                         .HasColumnType("integer");
+
+                    b.Property<Guid?>("TicketId")
+                        .HasColumnType("uuid");
 
                     b.Property<DateTime>("TimeCreated")
                         .HasColumnType("timestamp with time zone");
@@ -236,7 +229,7 @@ namespace Database.Migrations
 
                     b.HasIndex("AuthorId");
 
-                    b.HasIndex("PreviousTransitionId");
+                    b.HasIndex("TicketId");
 
                     b.HasIndex("UserCreatedId");
 
@@ -486,19 +479,15 @@ namespace Database.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Domain.Ticket.TicketChanges.SolverChange", "SolverChanges")
+                    b.HasOne("Domain.User.User", "Solver")
                         .WithMany()
-                        .HasForeignKey("SolverChangesId");
+                        .HasForeignKey("SolverId");
 
                     b.HasOne("Domain.Messaging.MessageThread", "Thread")
                         .WithMany()
                         .HasForeignKey("ThreadId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("Domain.Ticket.TicketChanges.TicketChange", "TicketChanges")
-                        .WithMany()
-                        .HasForeignKey("TicketChangesId");
 
                     b.HasOne("Domain.User.User", "UserCreated")
                         .WithMany()
@@ -510,11 +499,9 @@ namespace Database.Migrations
 
                     b.Navigation("Hierarchy");
 
-                    b.Navigation("SolverChanges");
+                    b.Navigation("Solver");
 
                     b.Navigation("Thread");
-
-                    b.Navigation("TicketChanges");
 
                     b.Navigation("UserCreated");
 
@@ -523,13 +510,13 @@ namespace Database.Migrations
 
             modelBuilder.Entity("Domain.Ticket.TicketChanges.SolverChange", b =>
                 {
-                    b.HasOne("Domain.Ticket.TicketChanges.SolverChange", "PreviousTransition")
-                        .WithMany()
-                        .HasForeignKey("PreviousTransitionId");
-
                     b.HasOne("Domain.User.User", "Solver")
                         .WithMany()
                         .HasForeignKey("SolverId");
+
+                    b.HasOne("Domain.Ticket.Ticket", null)
+                        .WithMany("SolverChanges")
+                        .HasForeignKey("TicketId");
 
                     b.HasOne("Domain.Ticket.TicketChanges.TicketChange", "TicketTransition")
                         .WithMany()
@@ -542,8 +529,6 @@ namespace Database.Migrations
                     b.HasOne("Domain.User.User", "UserLastModified")
                         .WithMany()
                         .HasForeignKey("UserLastModifiedId");
-
-                    b.Navigation("PreviousTransition");
 
                     b.Navigation("Solver");
 
@@ -560,9 +545,9 @@ namespace Database.Migrations
                         .WithMany()
                         .HasForeignKey("AuthorId");
 
-                    b.HasOne("Domain.Ticket.TicketChanges.TicketChange", "PreviousTransition")
-                        .WithMany()
-                        .HasForeignKey("PreviousTransitionId");
+                    b.HasOne("Domain.Ticket.Ticket", null)
+                        .WithMany("TicketChanges")
+                        .HasForeignKey("TicketId");
 
                     b.HasOne("Domain.User.User", "UserCreated")
                         .WithMany()
@@ -573,8 +558,6 @@ namespace Database.Migrations
                         .HasForeignKey("UserLastModifiedId");
 
                     b.Navigation("Author");
-
-                    b.Navigation("PreviousTransition");
 
                     b.Navigation("UserCreated");
 
@@ -635,6 +618,13 @@ namespace Database.Migrations
             modelBuilder.Entity("Domain.Messaging.MessageThread", b =>
                 {
                     b.Navigation("Messages");
+                });
+
+            modelBuilder.Entity("Domain.Ticket.Ticket", b =>
+                {
+                    b.Navigation("SolverChanges");
+
+                    b.Navigation("TicketChanges");
                 });
 #pragma warning restore 612, 618
         }

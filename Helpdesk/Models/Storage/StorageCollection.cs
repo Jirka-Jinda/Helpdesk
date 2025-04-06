@@ -1,6 +1,4 @@
-﻿using Helpdesk.Models.Storage.Manager;
-
-namespace Helpdesk.Models.Storage;
+﻿namespace Helpdesk.Models.Storage;
 
 public static class StorageCollection
 {

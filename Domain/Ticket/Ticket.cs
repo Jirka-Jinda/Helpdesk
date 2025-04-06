@@ -8,10 +8,11 @@ public partial class Ticket : DomainObject
 {
     public Ticket Hierarchy { get; set; }
     public TicketType Type { get; set; }
-    public TicketChange? TicketChanges { get; set; }
+    public List<TicketChange> TicketChanges { get; set; }
     public MessageThread Thread { get; set; }
     public WFState WFState { get; set; }
-    public SolverChange? SolverChanges { get; set; }
+    public List<SolverChange> SolverChanges { get; set; }
+    public User.User? Solver { get; set; }
     public string Header { get; set; }
     public string Description { get; set; }
 
@@ -20,6 +21,7 @@ public partial class Ticket : DomainObject
         Hierarchy = this;
         WFState = WFState.Žádný;
         Thread = new MessageThread();
-        TicketChanges = null;
+        TicketChanges = [];
+        SolverChanges = [];
     }
 }

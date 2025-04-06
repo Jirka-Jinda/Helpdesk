@@ -13,12 +13,11 @@ public partial class Ticket
         {
             var newChange = new TicketChange(
                 WFTransitionRules.ActionResolutions(WFState, newAction),
-                newAction,
-                TicketChanges
+                newAction
                 );
-
+            newChange.TimeCreated = DateTime.UtcNow;
             WFState = newChange.State;
-            TicketChanges = newChange;
+            TicketChanges.Add(newChange);
 
             return true;
         }
@@ -29,16 +28,22 @@ public partial class Ticket
     {
         var newSolver = new SolverChange(
             solver,
-            description,
-            SolverChanges
+            description
         );
+        newSolver.TimeCreated = DateTime.UtcNow;
         if (change is not null)
             newSolver.TicketTransition = change;
 
-        SolverChanges = newSolver;
+        Solver = newSolver.Solver;
+        SolverChanges.Add(newSolver);
 
         return true;
     }
 
     #endregion
+
+    public void AddMessage(string message)
+    {
+        Thread.Messages.Add(new Messaging.Message(message) { TimeCreated = DateTime.UtcNow });
+    }
 }

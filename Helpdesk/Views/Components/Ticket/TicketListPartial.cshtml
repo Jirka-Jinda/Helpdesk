@@ -1,6 +1,18 @@
 ﻿@model IReadOnlyCollection<Ticket>
+@{
+    string filterText = ViewBag.FilterText as string ?? "";
+}
 
-<div class="container mt-4">
+<div class="container mt-2">
+    <form method="get" class="mb-3">
+        <div class="input-group">
+            <button type="submit" class="input-group-text bg-primary">
+                <img class="d-inline-block align-text-top invert-color" src="@Url.Content("~/img/bootstrap-icons-1.11.3/search.svg")" alt="SearchBar" width="#" height="#" />
+            </button>
+            <input type="text" name="filterText" value="@filterText" class="form-control" placeholder="Filtrovat podle názvu..." />            
+        </div>
+    </form>
+
     <div class="card shadow-sm">
         <div class="card-header bg-primary text-white">
             <h4>Požadavky</h4>
@@ -21,10 +33,10 @@
                         <tr onclick="location.href = '@Url.Action("Detail", "TicketManagement", new { ticketId = ticket.Id })'"
                             style="cursor: pointer;">
                             <td class="text-decoration-none fw-bold">@ticket.Header</td>
-                            <td>@ticket.UserCreated.UserName</td>
+                            <td>@ticket.UserCreated?.UserName</td>
                             <td>@ticket.TimeCreated.ToShortDateString()</td>
                             <td>
-                                <span class="badge bg-info px-1">@ticket.WFState</span>
+                                <span class="badge px-1 @(ticket.WFState == Domain.Workflow.Enums.WFState.Žádný ? "bg-info" : "bg-warning")">@ticket.WFState</span>
                             </td>
                         </tr>
                     }

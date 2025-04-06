@@ -5,15 +5,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Database.Repositories.Implementation;
 
-public class TicketRepository(HelpdeskDbContext context, UserService userService) : ITicketRepository
+public class TicketRepository(HelpdeskDbContext context) : ITicketRepository
 {
     private readonly HelpdeskDbContext _context = context;
-    private readonly UserService _userService = userService;
+    //private readonly UserService _userService = userService;
 
     public async Task<Ticket> CreateAsync(Ticket entity)
     {
         entity.TimeCreated = entity.TimeLastModified = DateTime.UtcNow;
-        entity.UserCreated = entity.UserLastModified = _userService.GetCurrentUser();
+        //entity.UserCreated = entity.UserLastModified = _userService.GetCurrentUser();
 
         var entityEntry = await _context.Tickets.AddAsync(entity);
         await _context.SaveChangesAsync();
@@ -43,7 +43,7 @@ public class TicketRepository(HelpdeskDbContext context, UserService userService
     {
         var collection = await _context.Tickets
             .UseTicketIncludesCollection()
-            .Where(t => t.UserCreated.Id == userId)
+            .Where(t => t.UserCreated.Id == userId.ToString())
             .ToListAsync();
         return collection;            
     }
@@ -52,7 +52,7 @@ public class TicketRepository(HelpdeskDbContext context, UserService userService
     {
         var collection = await _context.Tickets
             .UseTicketIncludesCollection()
-            .Where(t => t.SolverChanges != null && t.SolverChanges.Solver.Id == userId)
+            .Where(t => t.Solver.Id == userId.ToString())
             .ToListAsync();
         return collection;
     }
@@ -62,6 +62,14 @@ public class TicketRepository(HelpdeskDbContext context, UserService userService
         var collection = await _context.Tickets
             .UseTicketIncludesCollection()
             .Where(t => t.WFState == wfState)
+            .ToListAsync();
+        return collection;
+    }
+
+    public async Task<ICollection<Ticket>> GetAllAsync()
+    {
+        var collection = await _context.Tickets
+            .UseTicketIncludesCollection()
             .ToListAsync();
         return collection;
     }
@@ -81,11 +89,16 @@ file static class Extension
     {
         return tickets
             .Include(t => t.Thread)
-            .ThenInclude(t => t.Messages);
+            .ThenInclude(t => t.Messages)
+            .Include(t => t.TicketChanges)
+            .Include(t => t.SolverChanges)
+            .Include(t => t.Solver);
+        
     }
 
     public static IQueryable<Ticket> UseTicketIncludesCollection(this DbSet<Ticket> tickets)
     {
-        return tickets;
+        return tickets
+            .Include(t => t.UserCreated);
     }
 }

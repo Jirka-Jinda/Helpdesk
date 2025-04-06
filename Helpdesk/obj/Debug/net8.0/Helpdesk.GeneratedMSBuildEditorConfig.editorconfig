@@ -28,20 +28,28 @@ build_property._RazorSourceGeneratorDebug =
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Code/Private/Helpdesk/Helpdesk/Views/Components/TicketDetailPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcG9uZW50c1xUaWNrZXREZXRhaWxQYXJ0aWFsLmNzaHRtbA==
+[C:/Code/Private/Helpdesk/Helpdesk/Views/Access/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNzXExvZ2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Code/Private/Helpdesk/Helpdesk/Views/Components/TicketListPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcG9uZW50c1xUaWNrZXRMaXN0UGFydGlhbC5jc2h0bWw=
+[C:/Code/Private/Helpdesk/Helpdesk/Views/Components/Access/LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcG9uZW50c1xBY2Nlc3NcTG9naW5QYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Code/Private/Helpdesk/Helpdesk/Views/Components/TicketSolverPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcG9uZW50c1xUaWNrZXRTb2x2ZXJQYXJ0aWFsLmNzaHRtbA==
+[C:/Code/Private/Helpdesk/Helpdesk/Views/Components/Ticket/TicketDetailPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcG9uZW50c1xUaWNrZXRcVGlja2V0RGV0YWlsUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Code/Private/Helpdesk/Helpdesk/Views/Components/TicketWorkflowPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcG9uZW50c1xUaWNrZXRXb3JrZmxvd1BhcnRpYWwuY3NodG1s
+[C:/Code/Private/Helpdesk/Helpdesk/Views/Components/Ticket/TicketListPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcG9uZW50c1xUaWNrZXRcVGlja2V0TGlzdFBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Code/Private/Helpdesk/Helpdesk/Views/Components/Ticket/TicketSolverPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcG9uZW50c1xUaWNrZXRcVGlja2V0U29sdmVyUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Code/Private/Helpdesk/Helpdesk/Views/Components/Ticket/TicketWorkflowPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcG9uZW50c1xUaWNrZXRcVGlja2V0V29ya2Zsb3dQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Code/Private/Helpdesk/Helpdesk/Views/Layout/Index.cshtml]

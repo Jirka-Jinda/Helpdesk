@@ -1,4 +1,5 @@
 C:\Code\Private\Helpdesk\Database\bin\Debug\net8.0\Database.deps.json
+C:\Code\Private\Helpdesk\Database\bin\Debug\net8.0\Database.runtimeconfig.json
 C:\Code\Private\Helpdesk\Database\bin\Debug\net8.0\Database.dll
 C:\Code\Private\Helpdesk\Database\bin\Debug\net8.0\Database.pdb
 C:\Code\Private\Helpdesk\Database\bin\Debug\net8.0\Domain.dll
@@ -13,6 +14,5 @@ C:\Code\Private\Helpdesk\Database\obj\Debug\net8.0\Database.csproj.Up2Date
 C:\Code\Private\Helpdesk\Database\obj\Debug\net8.0\Database.dll
 C:\Code\Private\Helpdesk\Database\obj\Debug\net8.0\refint\Database.dll
 C:\Code\Private\Helpdesk\Database\obj\Debug\net8.0\Database.pdb
-C:\Code\Private\Helpdesk\Database\obj\Debug\net8.0\ref\Database.dll
-C:\Code\Private\Helpdesk\Database\bin\Debug\net8.0\Database.runtimeconfig.json
 C:\Code\Private\Helpdesk\Database\obj\Debug\net8.0\Database.genruntimeconfig.cache
+C:\Code\Private\Helpdesk\Database\obj\Debug\net8.0\ref\Database.dll

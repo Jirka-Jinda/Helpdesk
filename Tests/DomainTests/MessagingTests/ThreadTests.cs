@@ -11,21 +11,21 @@ public class ThreadTests
         
     }
 
-    [Fact]
-    public async Task Adding_messages_remains_ordered()
-    {
-        int iterations = 6;
+    //[Fact]
+    //public async Task Adding_messages_remains_ordered()
+    //{
+    //    int iterations = 6;
 
-        var ticket = emptyTicket;
-        await Task.Delay(2);
+    //    var ticket = emptyTicket;
+    //    await Task.Delay(2);
 
-        for (int i = 0; i < iterations; i++)
-        {
-            ticket.Thread.AddMessage(i.ToString());
-        }
+    //    for (int i = 0; i < iterations; i++)
+    //    {
+    //        ticket.Thread.AddMessage(i.ToString());
+    //    }
 
-        ticket.Thread.AddMessage("-1");
+    //    ticket.Thread.AddMessage("-1");
 
 
-    }
+    //}
 }

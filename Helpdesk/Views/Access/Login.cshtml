@@ -1,0 +1,10 @@
+﻿@using Domain.User
+@model User
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="d-flex flex-row">
+    @await Html.PartialAsync("~/Views/Components/Access/LoginPartial.cshtml", Model)
+</div>

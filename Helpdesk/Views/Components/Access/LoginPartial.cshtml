@@ -1,0 +1,23 @@
+﻿@using Domain.User
+@model User
+
+<div class="container d-flex justify-content-center align-items-center">
+    <div class="card p-4 shadow-sm" style="width: 400px;">
+        <div class="text-center mb-3">
+            <h5 class="mt-2">Log in to Your Account</h5>
+        </div>
+        <form method="post" asp-action="Login">
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label fw-bold"></label>
+                <input asp-for="Email" class="form-control" required placeholder="Enter your email">
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="PasswordHash" class="form-label fw-bold"></label>
+                <input asp-for="PasswordHash" type="password" class="form-control" required placeholder="Enter your password">
+                <span asp-validation-for="PasswordHash" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Log In</button>
+        </form>
+    </div>
+</div>

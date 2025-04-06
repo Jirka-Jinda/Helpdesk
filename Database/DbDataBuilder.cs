@@ -1,4 +1,5 @@
-﻿using Domain.Ticket;
+﻿using Database.Repositories.Abstraction;
+using Domain.Ticket;
 using Domain.User;
 using System.Text;
 
@@ -7,18 +8,20 @@ namespace Database;
 public class DbDataBuilder
 {
     private HelpdeskDbContext _context;
+    private ITicketRepository _ticketRepository;
     private Random _random;
     private int _createdTicketCount = 150;
     private (int Solvers, int Users) _createdUserCount = (30, 70);
     private static bool _usersCreated = false;
 
-    public DbDataBuilder(HelpdeskDbContext context)
+    public DbDataBuilder(HelpdeskDbContext context, ITicketRepository ticketRepository)
     {
         _context = context;
         _random = new Random();
+        _ticketRepository = ticketRepository;
     }
 
-    public DbDataBuilder PopulateTickets()
+    public async Task<DbDataBuilder> PopulateTickets()
     {
         for (int count = 0; count < _createdTicketCount; count++)
         {
@@ -35,10 +38,8 @@ public class DbDataBuilder
                 if (randomUser != null)
                     newTicket.UserCreated = newTicket.UserLastModified = randomUser;
             }
-
-            _context.Tickets.Add(newTicket);
+            await _ticketRepository.CreateAsync(newTicket);
         }              
-        _context.SaveChanges();
 
         return this;
     }
@@ -66,6 +67,10 @@ public class DbDataBuilder
 
             _context.Users.Add(newUser);            
         }
+        _context.Roles.Add(new UserRole(UserType.Zadavatel));
+        _context.Roles.Add(new UserRole(UserType.Auditor));
+        _context.Roles.Add(new UserRole(UserType.Řešitel));
+
         _context.SaveChangesAsync();
         _usersCreated = true;
 

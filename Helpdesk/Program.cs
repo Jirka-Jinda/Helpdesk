@@ -7,23 +7,31 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Filters
 builder.Services.AddControllersWithViews(options =>
 {
     options.Filters.Add<CookieFilter>();
 	options.Filters.Add<NavigationFilter>();
+	//options.Filters.Add<DbTransactionFilter>();
 });
 
+// Database collections
 builder.Services.AddDbContextPool<HelpdeskDbContext>(options => 
 {
-    options.UseNpgsql(builder.Configuration["DbSettings:ConnectionString"], b => b.MigrationsAssembly("Database"));
+    options.UseNpgsql(builder.Configuration["DbSettings:ConnectionStringDevelopment"], b => b.MigrationsAssembly("Database"));
 });
+builder.Services.AddRepositories();
 
+// Indentity collections
 builder.Services.AddAuthorization();
 builder.Services.AddAuthentication()
 	.AddCookie(IdentityConstants.ApplicationScheme);
 builder.Services.AddIdentityCore<User>()
+	.AddRoles<UserRole>()
 	.AddEntityFrameworkStores<HelpdeskDbContext>();
+//builder.Services.AddScoped<UserService>();
 
+// Application collections
 builder.Services.AddApplicationCollection(options => { });
 builder.Services.AddStorageCollection(options =>
 {
@@ -31,13 +39,12 @@ builder.Services.AddStorageCollection(options =>
 });
 builder.Services.AddEventPlannerCollection(options => { });
 
+// Build
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
 	app.UseExceptionHandler("/Home/Error");
-	// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
 	app.UseHsts();
 }
 

@@ -1,4 +1,4 @@
-﻿using Helpdesk.Models.EventPlanner.Planner;
+﻿using Microsoft.AspNetCore.Authorization;
 
 namespace Helpdesk.Controllers
 {

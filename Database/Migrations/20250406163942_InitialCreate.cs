@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Database.Migrations
 {
     /// <inheritdoc />
-    public partial class TestCreate : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -184,46 +184,6 @@ namespace Database.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "TicketChanges",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    PreviousTransitionId = table.Column<Guid>(type: "uuid", nullable: true),
-                    State = table.Column<int>(type: "integer", nullable: false),
-                    Action = table.Column<int>(type: "integer", nullable: false),
-                    AuthorId = table.Column<string>(type: "text", nullable: true),
-                    Description = table.Column<string>(type: "text", nullable: false),
-                    TimeCreated = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    UserCreatedId = table.Column<string>(type: "text", nullable: true),
-                    TimeLastModified = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    UserLastModifiedId = table.Column<string>(type: "text", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_TicketChanges", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_TicketChanges_AspNetUsers_AuthorId",
-                        column: x => x.AuthorId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_TicketChanges_AspNetUsers_UserCreatedId",
-                        column: x => x.UserCreatedId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_TicketChanges_AspNetUsers_UserLastModifiedId",
-                        column: x => x.UserLastModifiedId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_TicketChanges_TicketChanges_PreviousTransitionId",
-                        column: x => x.PreviousTransitionId,
-                        principalTable: "TicketChanges",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Messages",
                 columns: table => new
                 {
@@ -257,14 +217,103 @@ namespace Database.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Tickets",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    HierarchyId = table.Column<Guid>(type: "uuid", nullable: false),
+                    Type = table.Column<int>(type: "integer", nullable: false),
+                    ThreadId = table.Column<Guid>(type: "uuid", nullable: false),
+                    WFState = table.Column<int>(type: "integer", nullable: false),
+                    SolverId = table.Column<string>(type: "text", nullable: true),
+                    Header = table.Column<string>(type: "text", nullable: false),
+                    Description = table.Column<string>(type: "text", nullable: false),
+                    TimeCreated = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    UserCreatedId = table.Column<string>(type: "text", nullable: true),
+                    TimeLastModified = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    UserLastModifiedId = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Tickets", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Tickets_AspNetUsers_SolverId",
+                        column: x => x.SolverId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Tickets_AspNetUsers_UserCreatedId",
+                        column: x => x.UserCreatedId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Tickets_AspNetUsers_UserLastModifiedId",
+                        column: x => x.UserLastModifiedId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Tickets_Threads_ThreadId",
+                        column: x => x.ThreadId,
+                        principalTable: "Threads",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Tickets_Tickets_HierarchyId",
+                        column: x => x.HierarchyId,
+                        principalTable: "Tickets",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TicketChanges",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    State = table.Column<int>(type: "integer", nullable: false),
+                    Action = table.Column<int>(type: "integer", nullable: false),
+                    AuthorId = table.Column<string>(type: "text", nullable: true),
+                    Description = table.Column<string>(type: "text", nullable: true),
+                    TicketId = table.Column<Guid>(type: "uuid", nullable: true),
+                    TimeCreated = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    UserCreatedId = table.Column<string>(type: "text", nullable: true),
+                    TimeLastModified = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    UserLastModifiedId = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TicketChanges", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_TicketChanges_AspNetUsers_AuthorId",
+                        column: x => x.AuthorId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_TicketChanges_AspNetUsers_UserCreatedId",
+                        column: x => x.UserCreatedId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_TicketChanges_AspNetUsers_UserLastModifiedId",
+                        column: x => x.UserLastModifiedId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_TicketChanges_Tickets_TicketId",
+                        column: x => x.TicketId,
+                        principalTable: "Tickets",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "SolverChanges",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    PreviousTransitionId = table.Column<Guid>(type: "uuid", nullable: true),
                     TicketTransitionId = table.Column<Guid>(type: "uuid", nullable: true),
                     SolverId = table.Column<string>(type: "text", nullable: true),
-                    Description = table.Column<string>(type: "text", nullable: false),
+                    Description = table.Column<string>(type: "text", nullable: true),
+                    TicketId = table.Column<Guid>(type: "uuid", nullable: true),
                     TimeCreated = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     UserCreatedId = table.Column<string>(type: "text", nullable: true),
                     TimeLastModified = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
@@ -289,70 +338,15 @@ namespace Database.Migrations
                         principalTable: "AspNetUsers",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_SolverChanges_SolverChanges_PreviousTransitionId",
-                        column: x => x.PreviousTransitionId,
-                        principalTable: "SolverChanges",
-                        principalColumn: "Id");
-                    table.ForeignKey(
                         name: "FK_SolverChanges_TicketChanges_TicketTransitionId",
                         column: x => x.TicketTransitionId,
                         principalTable: "TicketChanges",
                         principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Tickets",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    HierarchyId = table.Column<Guid>(type: "uuid", nullable: false),
-                    Type = table.Column<int>(type: "integer", nullable: false),
-                    TicketChangesId = table.Column<Guid>(type: "uuid", nullable: true),
-                    ThreadId = table.Column<Guid>(type: "uuid", nullable: false),
-                    WFState = table.Column<int>(type: "integer", nullable: false),
-                    SolverChangesId = table.Column<Guid>(type: "uuid", nullable: true),
-                    Header = table.Column<string>(type: "text", nullable: false),
-                    Description = table.Column<string>(type: "text", nullable: false),
-                    TimeCreated = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    UserCreatedId = table.Column<string>(type: "text", nullable: true),
-                    TimeLastModified = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    UserLastModifiedId = table.Column<string>(type: "text", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Tickets", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Tickets_AspNetUsers_UserCreatedId",
-                        column: x => x.UserCreatedId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Tickets_AspNetUsers_UserLastModifiedId",
-                        column: x => x.UserLastModifiedId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Tickets_SolverChanges_SolverChangesId",
-                        column: x => x.SolverChangesId,
-                        principalTable: "SolverChanges",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Tickets_Threads_ThreadId",
-                        column: x => x.ThreadId,
-                        principalTable: "Threads",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Tickets_TicketChanges_TicketChangesId",
-                        column: x => x.TicketChangesId,
-                        principalTable: "TicketChanges",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Tickets_Tickets_HierarchyId",
-                        column: x => x.HierarchyId,
+                        name: "FK_SolverChanges_Tickets_TicketId",
+                        column: x => x.TicketId,
                         principalTable: "Tickets",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
@@ -408,14 +402,14 @@ namespace Database.Migrations
                 column: "UserLastModifiedId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_SolverChanges_PreviousTransitionId",
-                table: "SolverChanges",
-                column: "PreviousTransitionId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_SolverChanges_SolverId",
                 table: "SolverChanges",
                 column: "SolverId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SolverChanges_TicketId",
+                table: "SolverChanges",
+                column: "TicketId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_SolverChanges_TicketTransitionId",
@@ -448,9 +442,9 @@ namespace Database.Migrations
                 column: "AuthorId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_TicketChanges_PreviousTransitionId",
+                name: "IX_TicketChanges_TicketId",
                 table: "TicketChanges",
-                column: "PreviousTransitionId");
+                column: "TicketId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_TicketChanges_UserCreatedId",
@@ -468,19 +462,14 @@ namespace Database.Migrations
                 column: "HierarchyId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Tickets_SolverChangesId",
+                name: "IX_Tickets_SolverId",
                 table: "Tickets",
-                column: "SolverChangesId");
+                column: "SolverId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Tickets_ThreadId",
                 table: "Tickets",
                 column: "ThreadId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Tickets_TicketChangesId",
-                table: "Tickets",
-                column: "TicketChangesId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Tickets_UserCreatedId",
@@ -515,19 +504,19 @@ namespace Database.Migrations
                 name: "Messages");
 
             migrationBuilder.DropTable(
-                name: "Tickets");
+                name: "SolverChanges");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "SolverChanges");
+                name: "TicketChanges");
+
+            migrationBuilder.DropTable(
+                name: "Tickets");
 
             migrationBuilder.DropTable(
                 name: "Threads");
-
-            migrationBuilder.DropTable(
-                name: "TicketChanges");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

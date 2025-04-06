@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Database.Repositories.Abstraction;
+using Database.Repositories.Implementation;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -10,6 +12,14 @@ public static class IServiceCollectionExtensions
     {
         var options = new DbOptions();
         configureDbOptions(options);
+
+        return services;
+    }
+
+    public static IServiceCollection AddRepositories(this IServiceCollection services)
+    {
+        services.AddTransient<ITicketRepository, TicketRepository>();
+        services.AddTransient<IUserRepository, UserRepository>();
 
         return services;
     }

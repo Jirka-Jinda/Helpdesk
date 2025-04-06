@@ -8,7 +8,6 @@ global using System.Text.Json;
 global using Domain.Ticket;
 
 // Internal dependencies
-global using Helpdesk.Filters.Global;
 global using Helpdesk.Models.Navigation;
 global using Helpdesk.Models.Storage;
 global using Helpdesk.Models.Storage.Manager;

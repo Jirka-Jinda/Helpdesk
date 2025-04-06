@@ -10,10 +10,4 @@ public abstract class DomainObject
     public User.User UserCreated { get; set; }
     public DateTime TimeLastModified { get; set; }
     public User.User UserLastModified { get; set; }
-
-    public DomainObject()
-    {
-        //Id = Guid.NewGuid();
-        TimeCreated = TimeLastModified = DateTime.UtcNow;
-    }
 }
