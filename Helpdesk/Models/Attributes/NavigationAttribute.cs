@@ -10,7 +10,8 @@
     {
         public string? NavigationName { get; set; } = null;
         public bool IgnoreMove { get; set; } = false;
-
+        public bool BackwardMove { get; set; } = false;
+ 
         public static bool GetAttribute(Controller controller, NavigationRoute route, out NavigationAttribute attr)
         {
             var attrType = typeof(NavigationAttribute);

@@ -2,9 +2,9 @@
 @model User
 
 @{
-    ViewData["Title"] = "Login";
+    ViewData["Title"] = "Přihlášení";
 }
 
 <div class="d-flex flex-row">
-    @await Html.PartialAsync("~/Views/Components/Access/LoginPartial.cshtml", Model)
+    @await Html.PartialAsync("~/Views/Access/Components/LoginPartial.cshtml", Model)
 </div>

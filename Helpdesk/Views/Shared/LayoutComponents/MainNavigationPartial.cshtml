@@ -3,6 +3,7 @@
     string iconFormat = ".svg";
 }
 @model IReadOnlyCollection<Helpdesk.Models.Navigation.NavigationNode>
+
 <nav class="navbar d-block">
     <ul class="nav nav-pills btn-toggle-nav d-flex flex-column mb-auto">
         @foreach (NavigationNode node in Model)

@@ -28,12 +28,16 @@ build_property._RazorSourceGeneratorDebug =
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
+[C:/Code/Private/Helpdesk/Helpdesk/Views/Access/Components/LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNzXENvbXBvbmVudHNcTG9naW5QYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Code/Private/Helpdesk/Helpdesk/Views/Access/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNzXExvZ2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Code/Private/Helpdesk/Helpdesk/Views/Components/Access/LoginPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcG9uZW50c1xBY2Nlc3NcTG9naW5QYXJ0aWFsLmNzaHRtbA==
+[C:/Code/Private/Helpdesk/Helpdesk/Views/Access/LoginSuccess.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNzXExvZ2luU3VjY2Vzcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Code/Private/Helpdesk/Helpdesk/Views/Components/Ticket/TicketDetailPartial.cshtml]

@@ -4,7 +4,6 @@ using Helpdesk.Filters;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Filters
@@ -26,10 +25,9 @@ builder.Services.AddRepositories();
 builder.Services.AddAuthorization();
 builder.Services.AddAuthentication()
 	.AddCookie(IdentityConstants.ApplicationScheme);
-builder.Services.AddIdentityCore<User>()
-	.AddRoles<UserRole>()
-	.AddEntityFrameworkStores<HelpdeskDbContext>();
-//builder.Services.AddScoped<UserService>();
+builder.Services.AddIdentity<User, UserRole>()
+    .AddEntityFrameworkStores<HelpdeskDbContext>()
+    .AddDefaultTokenProviders();
 
 // Application collections
 builder.Services.AddApplicationCollection(options => { });

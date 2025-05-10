@@ -163,7 +163,7 @@
         {
             var result = new List<NavigationNode>();
 
-            // just optimalization for base use case, no need to initialize queue and variable
+            // just optimalization for base use case, no need to initialize queue and variable xD
             if (upToLevel <= 1)
                 foreach (var child in Root.Children)
                     result.Add(child);

@@ -36,6 +36,11 @@ public class NavigationFilter : ActionFilterAttribute
         }
         if (NavigationAttribute.GetAttribute((Controller)context.Controller, newRoute, out NavigationAttribute attrs))
         {
+            if (attrs.BackwardMove)
+            {
+                navigation?.MoveBackward();
+                skipForward = true;
+            }
             if (attrs.NavigationName != null) newNode.StaticName = newNode.DynamicName = attrs.NavigationName;
             if (attrs.IgnoreMove) skipForward = true;
         }

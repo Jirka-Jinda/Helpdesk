@@ -15,22 +15,30 @@
             navigation.ActiveNode = navigation.Root;
             navigation.Root.Level = 0;
 
-            var n1 = new NavigationNode(new NodeData() { StaticName = "Node1", DynamicName = "Node1", Icon = "arrow-right-square" }, new NavigationRoute("", "", ""));
-            var n2 = new NavigationNode(new NodeData() { StaticName = "Node2", DynamicName = "Node2", Icon = "arrow-right-square" }, new NavigationRoute("", "", ""));
-            var n3 = new NavigationNode(new NodeData() { StaticName = "Node3", DynamicName = "Node3", Icon = "arrow-right-square" }, new NavigationRoute("", "", ""));
-            var n4 = new NavigationNode(new NodeData() { StaticName = "Node4", DynamicName = "Node4", Icon = "arrow-right-square" }, new NavigationRoute("", "", ""));
-            var n5 = new NavigationNode(new NodeData() { StaticName = "Node5", DynamicName = "Node5", Icon = "arrow-right-square" }, new NavigationRoute("", "", ""));
-            var n6 = new NavigationNode(new NodeData() { StaticName = "Node6", DynamicName = "Node6", Icon = "arrow-right-square" }, new NavigationRoute("", "", ""));
-            var n7 = new NavigationNode(new NodeData() { StaticName = "Node7", DynamicName = "Node7", Icon = "arrow-right-square" }, new NavigationRoute("", "", ""));
-
-            var s1 = new NavigationNode(new NodeData() { StaticName = "Test", DynamicName = "Test", Icon = "arrow-right-square" }, new NavigationRoute("", "TicketCreation", "Index"));
-            var s2 = new NavigationNode(new NodeData() { StaticName = "SubNode2", DynamicName = "SubNode2", Icon = "arrow-right-square" }, new NavigationRoute("", "", ""));
-            var s3 = new NavigationNode(new NodeData() { StaticName = "Ticket List", DynamicName = "List", Icon = "arrow-right-square" }, new NavigationRoute("", "TicketManagement", "Overview"));
+            var n1 = new NavigationNode(new NodeData() { StaticName = "Založit nový", DynamicName = "Založení", Icon = "plus-square" }, new NavigationRoute("", "", ""));
+            var n2 = new NavigationNode(new NodeData() { StaticName = "Požadavky", DynamicName = "Požadavky - přehled", Icon = "card-list" }, new NavigationRoute("", "TicketManagement", "Overview"));
+            var n3 = new NavigationNode(new NodeData() { StaticName = "Archiv", DynamicName = "Archiv", Icon = "list-check" }, new NavigationRoute("", "TicketManagement", "Archive"));
 
 
-            navigation.Root.AppendChildren(new List<NavigationNode>() { n1, n2, n3, n4, n5, n6, n7 });
 
-            n1.AppendChildren(new List<NavigationNode>() { s1, s2, s3 });
+
+            //var n1 = new NavigationNode(new NodeData() { StaticName = "Node1", DynamicName = "Node1", Icon = "arrow-right-square" }, new NavigationRoute("", "", ""));
+            //var n2 = new NavigationNode(new NodeData() { StaticName = "Node2", DynamicName = "Node2", Icon = "arrow-right-square" }, new NavigationRoute("", "", ""));
+            //var n3 = new NavigationNode(new NodeData() { StaticName = "Node3", DynamicName = "Node3", Icon = "arrow-right-square" }, new NavigationRoute("", "", ""));
+            //var n4 = new NavigationNode(new NodeData() { StaticName = "Node4", DynamicName = "Node4", Icon = "arrow-right-square" }, new NavigationRoute("", "", ""));
+            //var n5 = new NavigationNode(new NodeData() { StaticName = "Node5", DynamicName = "Node5", Icon = "arrow-right-square" }, new NavigationRoute("", "", ""));
+            //var n6 = new NavigationNode(new NodeData() { StaticName = "Node6", DynamicName = "Node6", Icon = "arrow-right-square" }, new NavigationRoute("", "", ""));
+            //var n7 = new NavigationNode(new NodeData() { StaticName = "Node7", DynamicName = "Node7", Icon = "arrow-right-square" }, new NavigationRoute("", "", ""));
+
+            //var s1 = new NavigationNode(new NodeData() { StaticName = "Test", DynamicName = "Test", Icon = "arrow-right-square" }, new NavigationRoute("", "TicketCreation", "Index"));
+            //var s2 = new NavigationNode(new NodeData() { StaticName = "SubNode2", DynamicName = "SubNode2", Icon = "arrow-right-square" }, new NavigationRoute("", "", ""));
+            //var s3 = new NavigationNode(new NodeData() { StaticName = "Ticket List", DynamicName = "List", Icon = "arrow-right-square" }, new NavigationRoute("", "TicketManagement", "Overview"));
+
+
+            //navigation.Root.AppendChildren(new List<NavigationNode>() { n1, n2, n3, n4, n5, n6, n7 });
+            navigation.Root.AppendChildren(new List<NavigationNode>() { n1, n2, n3 });
+
+            //n1.AppendChildren(new List<NavigationNode>() { s1, s2, s3 });
 
             return navigation;
         }
