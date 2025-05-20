@@ -1,14 +1,27 @@
 name: dockercompose17421837114315639052
 services:
+  database:
+    container_name: HelpdeskPostgres
+    environment:
+      POSTGRES_PASSWORD: 0iZZkGCfP4slqqd
+      POSTGRES_USER: admin
+    image: postgres:latest
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 5432
+        published: "32668"
+        protocol: tcp
   helpdesk:
     build:
       context: C:\Code\Private\Helpdesk
       dockerfile: Helpdesk/Dockerfile
+    container_name: HelpdeskApplication
     environment:
       ASPNETCORE_ENVIRONMENT: Development
       ASPNETCORE_HTTP_PORTS: "8080"
       ASPNETCORE_HTTPS_PORTS: "8081"
-    image: helpdesk
     networks:
       default: null
     ports:

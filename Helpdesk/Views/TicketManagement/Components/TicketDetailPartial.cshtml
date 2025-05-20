@@ -1,0 +1,42 @@
+﻿@model Ticket
+
+<div class="container mt-2">
+    <!-- Ticket Header and Description -->
+    <div class="card mb-3 shadow-sm" style="max-height: 500px;">
+        <div class="card-header bg-primary text-white">
+            <h4>@Model.Header</h4>
+        </div>
+        <div class="card-body">
+            <p><strong>Zadavatel:</strong> @Model.UserCreated</p>
+            <p><strong>Vytvořeno:</strong> @Model.TimeCreated.ToShortDateString()</p>
+            <hr>
+            <p>@Model.Description</p>
+        </div>
+    </div>
+
+    <!-- Messages Section -->
+    <div class="card shadow-sm">
+        <div class="card-header bg-light">
+            <h5>Komentáře</h5>
+        </div>
+        <div class="card-body">
+            @foreach (var message in Model.Thread.Messages)
+            {
+                <div class="mb-3 p-3 border rounded bg-light">
+                    <p class="mb-1"><strong>@message.UserCreated</strong> <span class="text-muted">(@message.TimeCreated.ToShortDateString())</span></p>
+                    <p>@message.Text</p>
+                </div>
+            }
+        </div>
+        <div class="card-footer">
+            <form asp-controller="TicketManagement" asp-action="PostMessage" method="post">
+                <input type="hidden" name="ticketId" value="@Model.Id" />
+                <div class="form-group">
+                    <label for="newMessage">Komentář</label>
+                    <textarea class="form-control" id="newMessage" name="content" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary mt-2">Send</button>
+            </form>
+        </div>
+    </div>
+</div>

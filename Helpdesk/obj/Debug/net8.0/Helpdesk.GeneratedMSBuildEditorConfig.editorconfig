@@ -40,20 +40,28 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNzXExvZ2luU3VjY2Vzcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Code/Private/Helpdesk/Helpdesk/Views/Components/Ticket/TicketDetailPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcG9uZW50c1xUaWNrZXRcVGlja2V0RGV0YWlsUGFydGlhbC5jc2h0bWw=
+[C:/Code/Private/Helpdesk/Helpdesk/Views/Layout/Components/CrumbNavigationPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGF5b3V0XENvbXBvbmVudHNcQ3J1bWJOYXZpZ2F0aW9uUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Code/Private/Helpdesk/Helpdesk/Views/Components/Ticket/TicketListPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcG9uZW50c1xUaWNrZXRcVGlja2V0TGlzdFBhcnRpYWwuY3NodG1s
+[C:/Code/Private/Helpdesk/Helpdesk/Views/Layout/Components/ErrorDisplayPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGF5b3V0XENvbXBvbmVudHNcRXJyb3JEaXNwbGF5UGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Code/Private/Helpdesk/Helpdesk/Views/Components/Ticket/TicketSolverPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcG9uZW50c1xUaWNrZXRcVGlja2V0U29sdmVyUGFydGlhbC5jc2h0bWw=
+[C:/Code/Private/Helpdesk/Helpdesk/Views/Layout/Components/MainNavigationPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGF5b3V0XENvbXBvbmVudHNcTWFpbk5hdmlnYXRpb25QYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Code/Private/Helpdesk/Helpdesk/Views/Components/Ticket/TicketWorkflowPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcG9uZW50c1xUaWNrZXRcVGlja2V0V29ya2Zsb3dQYXJ0aWFsLmNzaHRtbA==
+[C:/Code/Private/Helpdesk/Helpdesk/Views/Layout/Components/SettingsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGF5b3V0XENvbXBvbmVudHNcU2V0dGluZ3NQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Code/Private/Helpdesk/Helpdesk/Views/Layout/Components/UserPanelPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGF5b3V0XENvbXBvbmVudHNcVXNlclBhbmVsUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Code/Private/Helpdesk/Helpdesk/Views/Layout/Components/UsersPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGF5b3V0XENvbXBvbmVudHNcVXNlcnNQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Code/Private/Helpdesk/Helpdesk/Views/Layout/Index.cshtml]
@@ -68,32 +76,28 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGF5b3V0XFVzZXJzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Code/Private/Helpdesk/Helpdesk/Views/Shared/LayoutComponents/CrumbNavigationPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExheW91dENvbXBvbmVudHNcQ3J1bWJOYXZpZ2F0aW9uUGFydGlhbC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Code/Private/Helpdesk/Helpdesk/Views/Shared/LayoutComponents/ErrorDisplayPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExheW91dENvbXBvbmVudHNcRXJyb3JEaXNwbGF5UGFydGlhbC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Code/Private/Helpdesk/Helpdesk/Views/Shared/LayoutComponents/MainNavigationPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExheW91dENvbXBvbmVudHNcTWFpbk5hdmlnYXRpb25QYXJ0aWFsLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Code/Private/Helpdesk/Helpdesk/Views/Shared/LayoutComponents/UserPanelPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExheW91dENvbXBvbmVudHNcVXNlclBhbmVsUGFydGlhbC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Code/Private/Helpdesk/Helpdesk/Views/Shared/LayoutComponents/UserSettingsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExheW91dENvbXBvbmVudHNcVXNlclNldHRpbmdzUGFydGlhbC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Code/Private/Helpdesk/Helpdesk/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Code/Private/Helpdesk/Helpdesk/Views/TicketCreation/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlja2V0Q3JlYXRpb25cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Code/Private/Helpdesk/Helpdesk/Views/TicketManagement/Components/TicketDetailPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlja2V0TWFuYWdlbWVudFxDb21wb25lbnRzXFRpY2tldERldGFpbFBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Code/Private/Helpdesk/Helpdesk/Views/TicketManagement/Components/TicketListPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlja2V0TWFuYWdlbWVudFxDb21wb25lbnRzXFRpY2tldExpc3RQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Code/Private/Helpdesk/Helpdesk/Views/TicketManagement/Components/TicketSolverPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlja2V0TWFuYWdlbWVudFxDb21wb25lbnRzXFRpY2tldFNvbHZlclBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Code/Private/Helpdesk/Helpdesk/Views/TicketManagement/Components/TicketWorkflowPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlja2V0TWFuYWdlbWVudFxDb21wb25lbnRzXFRpY2tldFdvcmtmbG93UGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Code/Private/Helpdesk/Helpdesk/Views/TicketManagement/Detail.cshtml]

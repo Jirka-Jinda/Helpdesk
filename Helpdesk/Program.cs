@@ -22,10 +22,10 @@ builder.Services.AddDbContextPool<HelpdeskDbContext>(options =>
 builder.Services.AddRepositories();
 
 // Indentity collections
-builder.Services.AddAuthorization();
-builder.Services.AddAuthentication()
-	.AddCookie(IdentityConstants.ApplicationScheme);
-builder.Services.AddIdentity<User, UserRole>()
+//builder.Services.AddAuthorization();
+//builder.Services.AddAuthentication()
+//	.AddCookie(IdentityConstants.ApplicationScheme);
+builder.Services.AddIdentity<User, IdentityRole>()
     .AddEntityFrameworkStores<HelpdeskDbContext>()
     .AddDefaultTokenProviders();
 
@@ -57,5 +57,17 @@ app.MapControllerRoute(
 	name: "default",
 	pattern: "{controller}/{action}",
 	defaults: new { controller = "Layout", action= "Index" });
+
+using (var scope = app.Services.CreateScope())
+{
+    // docker run --name HelpdeskPostgres -p 32668:5432 -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=0iZZkGCfP4slqqd -d postgres:latest
+
+    var dbBuilder = new DbDataBuilder(scope.ServiceProvider);
+
+    await dbBuilder.GenerateRolesAsync();
+    await dbBuilder.GenerateUsersAsync();
+    await dbBuilder.GenerateAdminAsync();
+    await dbBuilder.GenerateTicketsAsync();
+}
 
 app.Run();

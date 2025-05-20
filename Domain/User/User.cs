@@ -4,5 +4,5 @@ namespace Domain.User;
 
 public class User : IdentityUser
 {
-    public UserType UserType { get; set; }
+    public UserType UserRole { get; set; }
 }

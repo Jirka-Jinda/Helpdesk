@@ -3,6 +3,7 @@ using Database.Repositories.Abstraction;
 using Domain.Ticket;
 using Domain.User;
 using Domain.Workflow.Enums;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using System;
 
@@ -19,6 +20,7 @@ namespace Helpdesk.Controllers
             _ticketRepository = ticketRepository;            
         }
 
+        
         public async Task<IActionResult> Overview(string filterText)
         {
             var allTickets = await _ticketRepository.GetAllAsync();

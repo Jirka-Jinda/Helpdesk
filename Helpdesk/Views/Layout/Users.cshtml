@@ -1,13 +1,6 @@
 ﻿@using Domain.User
 @using Helpdesk.Models.Cookies
 
-@model User
+@model (User, IUserSettings)
 
-@inject Helpdesk.Models.Storage.Manager.IStorageManager storageManager
-
-<div>
-	@if (storageManager.GetScoped(out IUserSettings? userSettings) || Model is null)
-		@await Html.PartialAsync("~/Views/Shared/LayoutComponents/UserSettingsPartial.cshtml", (Model, userSettings))
-	else
-		@await Html.PartialAsync("~/Views/Shared/LayoutComponents/ErrorDisplayPartial.cshtml")
-</div>
+@await Html.PartialAsync("~/Views/Layout/Components/UsersPartial.cshtml", Model);

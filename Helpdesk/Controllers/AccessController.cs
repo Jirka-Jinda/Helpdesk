@@ -9,6 +9,7 @@ namespace Helpdesk.Controllers
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
         private HelpdeskDbContext _context;
+        private PasswordHasher<User> _passwordHasher = new(); 
 
         public AccessController(UserManager<User> userManager, SignInManager<User> signInManager, HelpdeskDbContext context)
         {
@@ -28,13 +29,17 @@ namespace Helpdesk.Controllers
         public async Task<IActionResult> SignIn(string Email, string PasswordHash)
         {
             var user = await _userManager.FindByEmailAsync(Email);
+            PasswordVerificationResult checkPass = PasswordVerificationResult.Failed;
 
-            if (user != null && await _userManager.CheckPasswordAsync(user, PasswordHash))
+            if (user != null && user.PasswordHash != null)
+                checkPass = _passwordHasher.VerifyHashedPassword(user, user.PasswordHash, PasswordHash);
+            
+            if (user != null && checkPass == PasswordVerificationResult.Success)
             {
                 await _signInManager.SignInAsync(user, isPersistent: true);
                 return View("LoginSuccess");
             }
-            return View("Login");
+            return RedirectToAction("Login");
         }
 
         public async Task<IActionResult> Logout()

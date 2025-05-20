@@ -1,5 +1,18 @@
 name: dockercompose17421837114315639052
 services:
+  database:
+    container_name: HelpdeskPostgres
+    environment:
+      POSTGRES_PASSWORD: 0iZZkGCfP4slqqd
+      POSTGRES_USER: admin
+    image: postgres:latest
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 5432
+        published: "32668"
+        protocol: tcp
   helpdesk:
     build:
       context: C:\Code\Private\Helpdesk
@@ -11,6 +24,7 @@ services:
         com.microsoft.created-by: visual-studio
         com.microsoft.visual-studio.project-name: Helpdesk
       target: base
+    container_name: HelpdeskApplication
     entrypoint:
       - dotnet
       - --roll-forward

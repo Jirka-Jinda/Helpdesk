@@ -23,10 +23,10 @@
         <div id="navigation-sidebar" class="bg-primary d-flex flex-column overflow-y-scroll hide-scrollbar">
             <div class="flex-grow-1">
                 <div> @* User *@                    
-                    @await Html.PartialAsync("~/Views/Shared/LayoutComponents/UserPanelPartial.cshtml")
+                    @await Html.PartialAsync("~/Views/Layout/Components/UserPanelPartial.cshtml")
                 </div>
                 <div> @* Navigation *@
-                    @await Html.PartialAsync("~/Views/Shared/LayoutComponents/MainNavigationPartial.cshtml", navigation?.GetMenuNodes())
+                    @await Html.PartialAsync("~/Views/Layout/Components/MainNavigationPartial.cshtml", navigation?.GetMenuNodes())
                 </div>
             </div>
             <div> @* Navigation - General, Settings *@
@@ -41,7 +41,7 @@
                         </li>
                         <li class="border-top mx-3 my-2"></li>
                         <li class="nav-item ms-2">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Access" asp-action="Login">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Layout" asp-action="Users">
                                 <img class="d-inline-block invert-color" src="@Url.Content(iconPath + "people" + iconFormat)" alt="Users" width="25" height="25" />
                                 <span class="mx-3">Uživatelé</span>
                             </a>
@@ -53,12 +53,12 @@
         <div class="flex-grow-1 d-flex flex-column">
             <div id="navigation-upperbar" class="bg-primary d-flex align-items-center justify-content-between" style="min-height:3rem">
                 <div class="mx-5 flex-grow-1 d-flex align-items-center"> @* Breadcrumb navigation *@
-                    @await Html.PartialAsync("~/Views/Shared/LayoutComponents/CrumbNavigationPartial.cshtml", navigation?.GetPathNodes())
+                    @await Html.PartialAsync("~/Views/Layout/Components/CrumbNavigationPartial.cshtml", navigation?.GetPathNodes())
                 </div>
                 <div class=""> @* Search bar *@
                     <form id="searchForm" class="input-group" role="search" asp-area="" asp-controller="Layout" asp-action="Search">
                         <button class="input-group-text bg-primary">
-                            <img class="d-inline-block align-text-top invert-color" src="@Url.Content("~/img/bootstrap-icons-1.11.3/search.svg")" alt="SearchBar" width="#" height="#" />
+                            <img class="d-inline-block align-text-top invert-color" src="@Url.Content("~/img/bootstrap-icons-1.11.3/search.svg")" alt="SearchBar"/>
                         </button>
                         <input id="searchInput" name="search" role="search" class="form-control search rounded-end" placeholder="Hledání...">
                     </form>

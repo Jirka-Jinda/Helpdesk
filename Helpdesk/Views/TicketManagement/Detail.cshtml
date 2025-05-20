@@ -6,10 +6,10 @@
 
 <div class="d-flex flex-row">
     <div class="w-75">
-        @await Html.PartialAsync("~/Views/Components/Ticket/TicketDetailPartial.cshtml", Model)
+        @await Html.PartialAsync("~/Views/TicketManagement/Components/TicketDetailPartial.cshtml", Model)
     </div>
     <div class="d-flex flex-column w-25">
-        @await Html.PartialAsync("~/Views/Components/Ticket/TicketWorkflowPartial.cshtml", Model)
-        @await Html.PartialAsync("~/Views/Components/Ticket/TicketSolverPartial.cshtml", Model)
+        @await Html.PartialAsync("~/Views/TicketManagement/Components/TicketWorkflowPartial.cshtml", Model)
+        @await Html.PartialAsync("~/Views/TicketManagement/Components/TicketSolverPartial.cshtml", Model)
     </div>
 </div>

@@ -56,7 +56,7 @@ public class UserRepository(HelpdeskDbContext context) : IUserRepository
     {
         var collection = await _context.Users
             .UseUserIncludesCollection()
-            .Where(u => u.UserType == userType)
+            .Where(u => u.UserRole == userType)
             .ToListAsync();
         return collection;
     }
