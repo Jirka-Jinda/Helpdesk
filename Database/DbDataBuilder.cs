@@ -134,8 +134,6 @@ public class DbDataBuilder
         if (_context.Users.Any(u => u.UserName == "admin"))
             return this;
 
-        Console.WriteLine("Creating admin user...");
-
         var user = new User()
         {
             UserName = "admin",

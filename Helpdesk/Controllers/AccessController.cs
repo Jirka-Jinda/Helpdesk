@@ -26,7 +26,7 @@ namespace Helpdesk.Controllers
 
         [ValidateAntiForgeryToken]
         [Navigation(BackwardMove = true)]
-        public async Task<IActionResult> SignIn(string Email, string PasswordHash)
+        public async Task<IActionResult> Sign(string Email, string PasswordHash)
         {
             var user = await _userManager.FindByEmailAsync(Email);
             PasswordVerificationResult checkPass = PasswordVerificationResult.Failed;

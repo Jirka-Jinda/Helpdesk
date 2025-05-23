@@ -55,7 +55,7 @@ namespace Helpdesk.Controllers
             return View("Index");
         }
 
-        [Navigation(IgnoreMove = true)]
+        [Navigation(BackwardMove = true)]
         public async Task<IActionResult> Users()
 		{
             var user = await _userManager.GetUserAsync(User);
@@ -66,7 +66,7 @@ namespace Helpdesk.Controllers
             return View(user);
         }
 
-        [Navigation(IgnoreMove = true)]
+        [Navigation(BackwardMove = true)]
         public IActionResult Settings()
 		{
 			return View();
