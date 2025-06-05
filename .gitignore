@@ -6,3 +6,12 @@ __pycache__
 /build
 /src/gen/
 /bin
+/obj
+/Database/obj
+/Database/bin
+/Domain/obj
+/Domain/bin
+/Helpdesk/obj
+/Helpdesk/bin
+/Tests/obj
+/Tests/bin
